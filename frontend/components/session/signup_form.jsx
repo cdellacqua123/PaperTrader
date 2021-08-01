@@ -8,6 +8,7 @@ class SignupForm extends React.Component {
             email: '',
             password: ''
         }
+    this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInput(field) {
@@ -42,7 +43,7 @@ class SignupForm extends React.Component {
                     </label>
                     <label>Password:
                         <input
-                            type="text"
+                            type="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
