@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createStore } from "redux";
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
-    ReactDOM.render(<h1>Welcome to the PaperTrader</h1>, root);
+    const store = createStore()
+    ReactDOM.render(<Root store={store}/>, root);
 });
