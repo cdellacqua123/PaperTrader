@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -48,7 +49,9 @@ class SignupForm extends React.Component {
                             onChange={this.handleInput('password')}
                         />
                     </label>
-                    <button onClick={this.handleSubmit}>Sign Up</button>
+                    
+                    <button onClick={this.handleSubmit} ><Link to="/users/show">Sign Up</Link> </button>
+                    
                 </form>
             </div>
         )
