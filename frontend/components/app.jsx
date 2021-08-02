@@ -1,12 +1,20 @@
 import React from 'react';
 import signup_container from './session/signup_container';
+
+import { Route, Switch } from 'react-router';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Home from './home/home';
+
+
 import UsersForm from './users/users_form';
-import { Route } from 'react-router';
 
 const App = () => (
     <div>
-        <Route path='/signup' component={signup_container}/>
-        <Route path='/users/show' component={UsersForm} />
+        <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/signup' component={signup_container}/>
+        <Route exact path='/users/show' component={UsersForm} />
+        </Switch>
     </div>
 );
 
