@@ -17,7 +17,7 @@ export const signup = user => dispatch => (
     ))
 );
 
-export const login = user => dispatch (
+export const login = user => dispatch => (
     APIUtil.login(user).then(currentUser => (
         dispatch({ type: 'RECEIVE_CURRENT_USER', currentUser})
     ), err => (
