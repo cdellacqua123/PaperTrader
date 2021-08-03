@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class UsersForm extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class UsersForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.signup(this.state)
+        this.props.logout(this.state)
     }
 
     render() {
