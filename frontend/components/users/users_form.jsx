@@ -13,9 +13,10 @@ class UsersForm extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return(
             <div>
-            <h1>Welcome!</h1>
+            <h1>Welcome {this.props.currentUser}</h1>
             <br></br>
             <button onClick={this.handleSubmit}><Link to='/'>Logout</Link></button>
             </div>

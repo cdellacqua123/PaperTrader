@@ -11,10 +11,10 @@ import users_container from './users/users_container';
 const App = () => (
     <div>
         <Switch>
+        <AuthRoute exact path='/login' component={login_container} />
+        <AuthRoute exact path='/signup' component={signup_container} />
+        <ProtectedRoute exact path='/users/show' component={users_container} />
         <Route exact path='/' component={Home}/>
-        <Route exact path='/signup' component={signup_container}/>
-        <Route exact path='/users/show' component={users_container} />
-        <Route exact path='/login' component={login_container} />
         </Switch>
     </div>
 );
