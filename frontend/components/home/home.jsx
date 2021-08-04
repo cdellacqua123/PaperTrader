@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import exchange from '../../../app/assets/images/exchange.jpg'
+import exchange from '../../../public/exchange.jpg'
 
 
 class Home extends React.Component {
