@@ -26,24 +26,33 @@ class LoginForm extends React.Component {
         return (
             <div>
                 <h1 className='login-head'>Paper Trader</h1>
-                <h1>Log into existing account:</h1>
+                <h2 className='login-head2'>Stock Market Simulator</h2>
+                <h1 className='login-desc'>Log into existing account:</h1>
                 <form>
-                    <label>Username:
+                    <br></br>
+                    <label className='login-uname'>Username:
+                        <br></br>
                         <input
+                            className='login-uname-field'
                             type="text"
                             value={this.state.username}
                             onChange={this.handleInput('username')}
                         />
                     </label>
-                    <label>Password:
+                    <br></br>
+                    <label className='login-pw'>Password:
+                        <br></br>
                         <input
+                            className='login-pw-field'
                             type="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
                         />
                     </label>
-
-                    <button onClick={this.handleSubmit} ><Link to="/users/show">Log in</Link> </button>
+                    <br></br>
+                    <button className='login-button' onClick={this.handleSubmit} >
+                        <Link className='login-link' to="/users/show">Log in</Link> 
+                        </button>
 
                 </form>
             </div>

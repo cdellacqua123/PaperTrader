@@ -4,7 +4,6 @@ import login_container from './session/login_container';
 import { Route, Switch } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Home from './home/home';
-
 import users_container from './users/users_container';
 
 

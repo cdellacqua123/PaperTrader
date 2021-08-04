@@ -26,6 +26,8 @@ class SignupForm extends React.Component {
     render() {
         return(
             <div>
+                <h1 className='signup-head'>Paper Trader</h1>
+                <h2 className='signup-desc'>Stock Market Simulator</h2>
                 <h1>Create a new account:</h1>
                 <form>
                     <label>Username:
