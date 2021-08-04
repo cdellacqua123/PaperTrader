@@ -1,0 +1,1 @@
+json.extract! account, :account_name, :id, :balance, :shorting_allowed
