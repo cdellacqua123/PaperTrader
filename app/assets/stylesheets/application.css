@@ -13,3 +13,134 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.home-h1 {
+    background-image: linear-gradient(to bottom, rgba(48,56,76,255), rgba(34,36,48,255));
+    color: white;
+    width: 100%;
+    display:inline-block;
+    margin: 0%;
+    font-family: 'Playfair Display', serif;
+    text-shadow: black;
+    font-size: 40px;
+}
+
+.home-pic {
+    max-height: 100%;
+    max-width: 100%;
+    display: flex;
+}
+
+.home-block .about {
+    text-align: center;
+}
+
+.about {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.description {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    margin-top: 10px;
+    max-width:500px;
+    word-wrap:break-word;
+    margin-bottom: 10px;
+}
+
+.home-block{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgba(2,16,46,255);
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 125px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.home-create {
+    margin-top: 10px;
+}
+.home-create:hover, .home-login:hover{
+    background-color: rgba(51,58,86,255);
+}
+
+.home-create, .home-login{
+    background-color: #a62436;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    width: 18rem;
+    padding: 1rem;
+    position: absolute;
+    left: 25%;
+}
+
+.home-login{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}

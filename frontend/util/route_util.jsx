@@ -4,7 +4,7 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = state => ({
-    loggedIn: Boolean(state.session.currentUser),
+    loggedIn: Boolean(state.session.id),
 });
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
@@ -12,7 +12,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
         !loggedIn ? (
             <Component {...props} />
         ) : (
-            <Redirect to="/" />
+            <Redirect to="/users/show" />
         )
     )} />
 );
@@ -21,7 +21,7 @@ const Protected = ({ component: Component, path, loggedIn }) => (
     <Route
         path={path}
         render={props => (
-            loggedIn ? <Component {...props} /> : <Redirect to="/signup" />
+            loggedIn ? <Component {...props} /> : <Redirect to="/login" />
         )}
     />
 );
