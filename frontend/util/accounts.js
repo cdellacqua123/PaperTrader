@@ -19,4 +19,4 @@ export const deleteAcct = acctId => (
         url: `/api/accounts/${acctId}`,
         method: 'DELETE'
     })
-)
+);
