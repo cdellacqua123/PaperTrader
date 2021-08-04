@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/cdellacqua123/PaperTrader/issues"
   },
-  "homepage": "https://github.com/cdellacqua123/PaperTrader#readme"
+  "homepage": "https://github.com/cdellacqua123/PaperTrader#readme",
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
 }
