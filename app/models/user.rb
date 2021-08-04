@@ -1,4 +1,3 @@
-require 'byebug'
 class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     validates :password_digest, :session_token, presence: true
