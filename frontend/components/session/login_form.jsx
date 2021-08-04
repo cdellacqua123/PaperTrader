@@ -25,6 +25,7 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div>
+                <h1 className='login-head'>Paper Trader</h1>
                 <h1>Log into existing account:</h1>
                 <form>
                     <label>Username:
