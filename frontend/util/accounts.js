@@ -1,16 +1,16 @@
-export const createAcct = acct => (
+export const createAcct = account => (
     $.ajax({
         url: 'api/accounts',
         method: 'POST',
-        data: {acct}
+        data: {account}
     })
 )
 
-export const editAcct = acct => (
+export const editAcct = account => (
     $.ajax({
-        url: `/api/accounts/${acct.id}`,
+        url: `/api/accounts/${account.id}`,
         method: 'PATCH',
-        data: {acct}
+        data: {account}
     })
 );
 

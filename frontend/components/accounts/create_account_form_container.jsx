@@ -4,6 +4,7 @@ import AccountForm from "./account_form";
 
 const mSTP = state => ({
     account: {
+        user_id: state.entities.users[state.session.id].id,
         account_name: '',
         balance: '',
         shorting: 'false'
@@ -12,7 +13,7 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    submitAcct: acct => dispatch(createAcct(acct))
+    submitAcct: account => dispatch(createAcct(account))
 });
 
 export default connect(mSTP, mDTP)(AccountForm);
