@@ -3,17 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-.user-header {
-    background-image: linear-gradient(to bottom, rgba(48,56,76,255), rgba(34,36,48,255));
-    color: white;
-    width: 100%;
-    display:inline-block;
-    margin: 0%;
-    font-family: 'Playfair Display', serif;
-    text-shadow: black;
-    font-size: 40px;
-}
-
 .welcome {
     width: 100%;
     display:inline-block;
@@ -21,4 +10,19 @@
     font-family: 'Playfair Display', serif;
     text-shadow: black;
     font-size: 40px;
+}
+
+.logout {
+    float: inherit;
+    position: absolute;
+    top: 3px;
+    right: 30px;
+    font-size: 18px;
+    width: 100px;
+    padding: 10px;
+    background-color: #a62436;
+}
+
+.logout-txt {
+    color: white;
 }

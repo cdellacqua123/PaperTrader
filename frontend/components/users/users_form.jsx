@@ -16,11 +16,12 @@ class UsersForm extends React.Component {
         console.log(this.props)
         return(
             <div>
-            <h1 className='user-header'>Paper Trader</h1>
-                {/* {this.props.currentUser.username} */}
-            <h2 className='welcome'>Welcome, User!</h2>
+            <h1 className='pt-header'>Paper Trader</h1>    
+            <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
-            <button onClick={this.handleSubmit}><Link to='/'>Logout</Link></button>
+            <button className='logout' onClick={this.handleSubmit}>
+                <Link className='logout-txt' to='/'>Logout</Link>
+            </button>
             <Link to='account/create'>Create New Account</Link>
             </div>
         )

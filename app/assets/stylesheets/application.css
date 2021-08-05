@@ -15,15 +15,14 @@
  */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-.home-h1 {
+.pt-header {
     background-image: linear-gradient(to bottom, rgba(48,56,76,255), rgba(34,36,48,255));
     color: white;
     width: 100%;
     display:inline-block;
-    margin: 0%;
     font-family: 'Playfair Display', serif;
-    text-shadow: black;
     font-size: 40px;
+    left: 10px;
 }
 
 .home-pic {
@@ -93,7 +92,9 @@
     justify-content: center;
 }
 
-
+.home-login-txt, .home-create-txt {
+    color: white
+}
 
 
 
