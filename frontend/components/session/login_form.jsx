@@ -22,6 +22,18 @@ class LoginForm extends React.Component {
         this.props.login(this.state)
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
     render() {
         return (
             <div>
@@ -29,6 +41,9 @@ class LoginForm extends React.Component {
                 <h2 className='login-head2'>Stock Market Simulator</h2>
                 <h1 className='login-desc'>Log into existing account:</h1>
                 <form>
+                    <div>
+                    {this.renderErrors()}
+                    </div>
                     <br></br>
                     <label className='login-uname'>Username:
                         <br></br>
