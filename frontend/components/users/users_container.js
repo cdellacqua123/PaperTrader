@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
-import UsersForm from "./users_form";
+import UsersShow from "./users_show";
 
 const mSTP = (state) => ({
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
 });
 
 const mDTP = dispatch => ({
     logout: user => dispatch(logout(user))
 });
 
-export default connect(mSTP, mDTP)(UsersForm);
+export default connect(mSTP, mDTP)(UsersShow);

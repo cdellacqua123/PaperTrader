@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AccountIndexItem from './account_index_item';
 
 class UsersForm extends React.Component {
     constructor(props) {
@@ -13,6 +14,9 @@ class UsersForm extends React.Component {
     }
 
     render() {
+        const { accounts } = this.props.currentUser
+        const arrAccounts = Object.values(accounts)
+        console.log(arrAccounts)
         return(
             <div>
             <h1 className='pt-header'>Paper Trader</h1>    
@@ -21,6 +25,19 @@ class UsersForm extends React.Component {
             <button className='logout' onClick={this.handleSubmit}>
                 <Link className='logout-txt' to='/'>Logout</Link>
             </button>
+            <br></br>
+            
+            {
+                arrAccounts.map(account => (
+                    <AccountIndexItem
+                    account_name = {account.account_name}
+                    balance={account.balance}
+                    equities={account.equities}
+                    />
+                ))
+                
+            }
+            
             <Link to='account/create'>Create New Trading Account</Link>
             </div>
         )

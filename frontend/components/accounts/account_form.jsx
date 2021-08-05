@@ -26,7 +26,6 @@ class AccountForm extends React.Component {
     };
 
     render(){
-        console.log(this.state)
         return(
                 <form>
                 <h1>Nickname:</h1>
