@@ -35,7 +35,7 @@ class AccountForm extends React.Component {
                 Shorting?:
                 <input onChange={this.handleInput('shorting_allowed')}/>
                 <button onClick={this.handleSubmit}>
-                    <Link className='create-acct-link' to="/users/show">Create Trading Account</Link>
+                    <Link onClick={() => window.location.reload()} className='create-acct-link' to="/users/show">Create Trading Account</Link>
                 </button>
                 </form>
         )
