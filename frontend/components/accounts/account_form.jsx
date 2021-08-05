@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class AccountForm extends React.Component {
     constructor(props){
@@ -15,10 +16,17 @@ class AccountForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.submitAcct(this.state)
+        this.props.submitAcct({
+            account_name: this.state.account_name,
+            balance: this.state.balance,
+            shorting_allowed: this.state.shorting_allowed,
+            user_id: this.state.user_id
+        })
+        
     };
 
     render(){
+        console.log(this.state)
         return(
                 <form>
                 <h1>Nickname:</h1>
@@ -26,8 +34,10 @@ class AccountForm extends React.Component {
                 <h1>Balance:</h1>
                 <input onChange={this.handleInput('balance')}/>
                 Shorting?:
-                <input onChange={this.handleInput('shorting')}/>
-                <button onClick={this.handleSubmit}/>
+                <input onChange={this.handleInput('shorting_allowed')}/>
+                <button onClick={this.handleSubmit}>
+                    <Link className='create-acct-link' to="/users/show">Create Trading Account</Link>
+                </button>
                 </form>
         )
     }

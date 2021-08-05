@@ -1,9 +1,8 @@
 class Api::AccountsController < ApplicationController
     def create
         @account = Account.new(account_params)
-        @account.user_id = params[:user_id]
-        if @account.save
-            render :show
+        if @account.save!
+            render 'api/accounts/show'
         else
             render json: @account.errors.full_messages, status: 401
         end
@@ -20,6 +19,6 @@ class Api::AccountsController < ApplicationController
 
     private
     def account_params
-        params.require(:account).permit(:account_name, :balance, :shorting_allowed)
+        params.require(:account).permit(:account_name, :balance, :shorting_allowed, :user_id)
     end
 end

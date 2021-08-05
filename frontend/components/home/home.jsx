@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import exchange from '../../../public/exchange.jpg'
-
 
 class Home extends React.Component {
     render() {
         return(
             <div className='homepage'>
             <h1 className='pt-header'>Paper Trader</h1>
-            <img className='home-pic'src={exchange}/>
+            <img className='home-pic'src="images/exchange.jpg"/>
             <div className="home-block">
                 <h1 className='about'>About this website</h1>
                 <p className="description">
