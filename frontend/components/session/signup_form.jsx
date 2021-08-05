@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
             <div>
                 <h1 className='signup-head'>Paper Trader</h1>
                 <h2 className='signup-head2'>Stock Market Simulator</h2>
-                <h1 className='signup-desc'>Create a new account:</h1>
+                <h1 className='signup-desc'>Create a new profile:</h1>
                 <form>
                     <br></br>
                     <label className='signup-uname'>Username:

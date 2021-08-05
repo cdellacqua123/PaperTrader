@@ -21,7 +21,7 @@ class UsersForm extends React.Component {
             <button className='logout' onClick={this.handleSubmit}>
                 <Link className='logout-txt' to='/'>Logout</Link>
             </button>
-            <Link to='account/create'>Create New Account</Link>
+            <Link to='account/create'>Create New Trading Account</Link>
             </div>
         )
     }

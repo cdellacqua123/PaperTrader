@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
             <div>
                 <h1 className='login-head'>Paper Trader</h1>
                 <h2 className='login-head2'>Stock Market Simulator</h2>
-                <h1 className='login-desc'>Log into existing account:</h1>
+                <h1 className='login-desc'>Log into existing profile:</h1>
                 <form>
                     <div>
                     {this.renderErrors()}

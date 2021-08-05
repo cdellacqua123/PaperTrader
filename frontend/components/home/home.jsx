@@ -13,9 +13,13 @@ class Home extends React.Component {
                     This is sample text  that will be changed to include details
                     about what this site is, how to use it, and who it's for.
                 </p>
-                    <button className='home-create'><Link className='home-create-txt'to="/signup">Create Account</Link></button>
+                    <button className='home-create'>
+                        <Link className='home-create-txt'to="/signup">Create Profile</Link>
+                    </button>
                 <br/>
-                    <button className='home-login'><Link className='home-login-txt'to="/login">Login</Link></button>
+                    <button className='home-login'>
+                        <Link className='home-login-txt'to="/login">Login</Link>
+                    </button>
             </div>
             </div>
         )
