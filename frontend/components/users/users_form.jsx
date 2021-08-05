@@ -18,6 +18,7 @@ class UsersForm extends React.Component {
             <h1>Welcome {this.props.currentUser.username}</h1>
             <br></br>
             <button onClick={this.handleSubmit}><Link to='/'>Logout</Link></button>
+            <Link to='account/create'>Create New Account</Link>
             </div>
         )
     }
