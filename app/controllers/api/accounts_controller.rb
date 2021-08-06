@@ -1,4 +1,5 @@
 class Api::AccountsController < ApplicationController
+    
     def create
         @account = Account.new(account_params)
         if @account.save!
@@ -14,6 +15,16 @@ class Api::AccountsController < ApplicationController
             render :show
         else
             render json: @account.errors.full_messages, status: 401
+        end
+    end
+    
+    def index
+        @user = User.find_by(id: params[:userId])
+        @accounts = Account.select{|account| account.user_id == @user.id}
+        if @accounts
+            render 'api/accounts/index'
+        else
+            render ["No accounts!"]
         end
     end
 

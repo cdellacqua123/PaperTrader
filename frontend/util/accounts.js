@@ -20,3 +20,11 @@ export const deleteAcct = acctId => (
         method: 'DELETE'
     })
 );
+
+export const fetchAcctsForUser = (userId) => (
+    $.ajax({
+        url: `/api/accounts/`,
+        method: 'GET',
+        data: { userId }
+    })
+);

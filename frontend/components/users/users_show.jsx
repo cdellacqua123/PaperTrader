@@ -13,10 +13,17 @@ class UsersForm extends React.Component {
         this.props.logout(this.state)
     }
 
+    componentDidMount() {
+        this.props.fetchAcctsForUser(this.props.currentUser.id)
+    };
+
+    
     render() {
-        const { accounts } = this.props.currentUser
-        const arrAccounts = Object.values(accounts)
-        console.log(arrAccounts)
+        if (!this.props.accounts) {
+            return null
+        }
+        let {accounts} = this.props
+        console.log(accounts)
         return(
             <div>
             <h1 className='pt-header'>Paper Trader</h1>    
@@ -26,21 +33,20 @@ class UsersForm extends React.Component {
                 <Link className='logout-txt' to='/'>Logout</Link>
             </button>
             <br></br>
-            
             {
-                arrAccounts.map(account => (
-                    <AccountIndexItem
+                accounts.map(account => {
+                    // if (account.user_id === this.props.currentUser.id){
+                    return(<AccountIndexItem
                     account_name = {account.account_name}
                     balance={account.balance}
                     equities={account.equities}
-                    />
-                ))
-                
+                    />)
+                })
             }
-            
             <Link to='account/create'>Create New Trading Account</Link>
             </div>
         )
+        
     }
 }
 export default UsersForm;

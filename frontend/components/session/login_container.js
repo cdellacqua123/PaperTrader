@@ -4,7 +4,8 @@ import LoginForm from "./login_form";
 
 const mSTP = state => ({
     errors: state.errors.sessRedErr
-})
+});
+
 const mDTP = dispatch => ({
     login: user => dispatch(login(user))
 });

@@ -23,6 +23,18 @@ class SignupForm extends React.Component {
         this.props.signup(this.state)
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
     render() {
         return(
             <div>
@@ -30,6 +42,7 @@ class SignupForm extends React.Component {
                 <h2 className='signup-head2'>Stock Market Simulator</h2>
                 <h1 className='signup-desc'>Create a new profile:</h1>
                 <form>
+                    {this.renderErrors()}
                     <br></br>
                     <label className='signup-uname'>Username:
                     <br></br>
