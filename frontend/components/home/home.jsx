@@ -20,6 +20,7 @@ class Home extends React.Component {
                     <button className='home-login'>
                         <Link className='home-login-txt'to="/login">Login</Link>
                     </button>
+                <br />
             </div>
             </div>
         )

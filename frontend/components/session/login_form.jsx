@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
             password: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.guestLogin = this.guestLogin.bind(this)
     }
 
     handleInput(field) {
@@ -18,8 +19,15 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         this.props.login(this.state)
+    }
+
+    guestLogin(e) {
+        
+        e.preventDefault();
+        this.props.login({ username: 'Guest', password: 'password'})
     }
 
     renderErrors() {
@@ -67,6 +75,10 @@ class LoginForm extends React.Component {
                     <br></br>
                     <button className='login-button' onClick={this.handleSubmit} >
                         <Link className='login-link' to="/users/show">Log in</Link> 
+                    </button>
+                    <br></br>
+                    <button className='guest-button' onClick={this.guestLogin} >
+                        <Link className='guest-link' to="/users/show">Guest Log in</Link>
                     </button>
                 </form>
             </div>
