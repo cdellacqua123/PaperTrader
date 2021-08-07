@@ -20,7 +20,8 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.signup(this.state)
+        this.props.signup(this.state);
+        this.props.history.push("/users/show");
     }
 
     renderErrors() {
@@ -75,7 +76,7 @@ class SignupForm extends React.Component {
                     </label>
                     <br></br>
                     <button className='signup-button' onClick={this.handleSubmit} >
-                        <Link className='signup-link' to="/users/show">Sign Up</Link>
+                        Sign Up
                     </button>
                     
                 </form>
