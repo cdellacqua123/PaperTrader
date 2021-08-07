@@ -19,15 +19,16 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
-        this.props.login(this.state)
+        this.props.login(this.state);
+        this.props.history.push("/users/show");
     }
 
     guestLogin(e) {
-        
         e.preventDefault();
         this.props.login({ username: 'Guest', password: 'password'})
+        this.props.history.push("/users/show")
+            
     }
 
     renderErrors() {
@@ -41,17 +42,57 @@ class LoginForm extends React.Component {
             </ul>
         );
     }
-
+    
     render() {
+        console.log(this)
+        if (this.props.errors.length) {
+            return(
+                <div>
+                    <h1 className='login-head'>Paper Trader</h1>
+                    <h2 className='login-head2'>Stock Market Simulator</h2>
+                    <h1 className='login-desc'>Log into existing profile:</h1>
+                    <form>
+                        <div className="login-err">
+                            {this.renderErrors()}
+                        </div>
+                        <br></br>
+                        <label className='login-uname'>Username:
+                            <br></br>
+                            <input
+                                className='login-uname-field'
+                                type="text"
+                                value={this.state.username}
+                                onChange={this.handleInput('username')}
+                            />
+                        </label>
+                        <br></br>
+                        <label className='login-pw'>Password:
+                            <br></br>
+                            <input
+                                className='login-pw-field'
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.handleInput('password')}
+                            />
+                        </label>
+                        <br></br>
+                        <button className='login-button' onClick={this.handleSubmit} >
+                            Login
+                        </button>
+                        <br></br>
+                        <button className='guest-button' onClick={this.guestLogin} >
+                            Guest Login
+                        </button>
+                    </form>
+                </div>
+            )
+        }
         return (
             <div>
                 <h1 className='login-head'>Paper Trader</h1>
                 <h2 className='login-head2'>Stock Market Simulator</h2>
                 <h1 className='login-desc'>Log into existing profile:</h1>
                 <form>
-                    <div>
-                    {this.renderErrors()}
-                    </div>
                     <br></br>
                     <label className='login-uname'>Username:
                         <br></br>
@@ -74,11 +115,11 @@ class LoginForm extends React.Component {
                     </label>
                     <br></br>
                     <button className='login-button' onClick={this.handleSubmit} >
-                        <Link className='login-link' to="/users/show">Log in</Link> 
+                        Login
                     </button>
                     <br></br>
                     <button className='guest-button' onClick={this.guestLogin} >
-                        <Link className='guest-link' to="/users/show">Guest Log in</Link>
+                        Guest Login
                     </button>
                 </form>
             </div>

@@ -36,7 +36,7 @@
     margin-top: 10px;
 }
 
-.login-button, .signup-button {
+.login-button, .signup-button, .guest-button {
     position: relative;
     left: 44%;
     margin-top: 10px;
@@ -45,8 +45,18 @@
     font-size: 18px;
     width: 12rem;
     padding: 1rem;
+    color: #fff;
 }
 
-.login-link, .signup-link {
-    color: #fff;
+.login-err {
+    color: red;
+    float:right;
+    border-radius: 15px;
+    border: 2px solid;
+    padding: 10px;
+    width: 120px;
+    background-color: rgba(210, 129, 145, .5);
+    position: absolute;
+    right: 500px;
+    top: 225px;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AccountIndexItem from './account_index_item';
 
+
 class UsersForm extends React.Component {
     constructor(props) {
         super(props)
@@ -11,25 +12,36 @@ class UsersForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.logout(this.state)
+        this.props.history.push('/');
     }
 
     componentDidMount() {
         this.props.fetchAcctsForUser(this.props.currentUser.id)
     };
 
-    
+    homePage = () => {
+        let path = '/';
+        this.props.history.push(path);
+    }
     render() {
         if (!this.props.accounts) {
             return null
         }
+
         let {accounts} = this.props
         return(
             <div>
-            <h1 className='pt-header'>Paper Trader</h1>    
+                
+                <h1 className='pt-header'>
+                    <img className="logo" src="images/logo.png" />
+                    Paper Trader
+                </h1>
+                <button className="home-button" onClick={this.homePage}>
+                </button>
             <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
-            <button className='logout' onClick={this.handleSubmit}>
-                <Link className='logout-txt' to='/'>Logout</Link>
+            
+            <button className='logout' onClick={this.handleSubmit}>Logout
             </button>
             <br></br>
             {

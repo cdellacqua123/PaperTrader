@@ -2,10 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
+
+    signUpPage = () => {
+        this.props.history.push("/signup");
+    }
+
+    loginPage = () => {
+        this.props.history.push("/login");
+    }
+
     render() {
         return(
             <div className='homepage'>
-            <h1 className='pt-header'>Paper Trader</h1>
+            
+            <h1 className='pt-header'>
+                <img className="logo" src="images/logo.png" />
+                Paper Trader
+            </h1>
             <img className='home-pic'src="images/exchange.jpg"/>
             <div className="home-block">
                 <h1 className='about'>About this website</h1>
@@ -13,12 +26,10 @@ class Home extends React.Component {
                     This is sample text  that will be changed to include details
                     about what this site is, how to use it, and who it's for.
                 </p>
-                    <button className='home-create'>
-                        <Link className='home-create-txt'to="/signup">Create Profile</Link>
+                    <button onClick={this.signUpPage} className='home-create'>Create Profile
                     </button>
                 <br/>
-                    <button className='home-login'>
-                        <Link className='home-login-txt'to="/login">Login</Link>
+                    <button onClick={this.loginPage} className='home-login'>Login
                     </button>
                 <br />
             </div>
