@@ -20,8 +20,11 @@ class UsersForm extends React.Component {
     };
 
     homePage = () => {
-        let path = '/';
-        this.props.history.push(path);
+        this.props.history.push("/");
+    }
+
+    createAcct = () => {
+        this.props.history.push("account/create");
     }
     render() {
         if (!this.props.accounts) {
@@ -62,7 +65,7 @@ class UsersForm extends React.Component {
                 }
                 </table>
                 
-            <Link to='account/create'>Create New Trading Account</Link>
+            <button onClick={this.createAcct}>Create New Trading Account</button>
             </div>
         )
         
