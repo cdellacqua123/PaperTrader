@@ -34,7 +34,6 @@ class UsersForm extends React.Component {
         let {accounts} = this.props
         return(
             <div>
-                
                 <h1 className='pt-header'>
                     <img className="logo" src="images/logo.png" />
                     Paper Trader

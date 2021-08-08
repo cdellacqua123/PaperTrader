@@ -25,8 +25,8 @@ class LoginForm extends React.Component {
 
     guestLogin(e) {
         e.preventDefault();
-        this.props.login({ username: 'Guest', password: 'password'})
-        this.props.history.push("/users/show")
+        this.props.login({ username: 'Guest', password: 'password'});
+        this.props.history.push("/users/show");
             
     }
 
