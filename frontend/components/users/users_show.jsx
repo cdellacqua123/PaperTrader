@@ -44,15 +44,24 @@ class UsersForm extends React.Component {
             <button className='logout' onClick={this.handleSubmit}>Logout
             </button>
             <br></br>
-            {
-                accounts.map(account => (
-                    <AccountIndexItem
-                    account_name = {account.account_name}
-                    balance={account.balance}
-                    equities={account.equities}
-                    />
+            
+            <table className="acct-table">
+                <tr>
+                    <th className="table-headers">Account Nickname</th>
+                    <th className="table-headers">Cash Balance</th>
+                    <th className="table-headers">Equities</th>
+                </tr>
+                {accounts.map(account => (
+                        <AccountIndexItem
+                        account_name = {account.account_name}
+                        balance={account.balance}
+                        equities={account.equities}
+                        />
+                        
                     ))
-            }
+                }
+                </table>
+                
             <Link to='account/create'>Create New Trading Account</Link>
             </div>
         )

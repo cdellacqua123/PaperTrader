@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 class AccountIndexItem extends React.Component {
     render() {
-        const {account_name, balance, equities} = this.props
+        const {account_name, balance, equities="None"} = this.props
         return(
-            <li>
-                <p>{account_name}</p>
-                <p>{balance}</p>
-                <p>{equities}</p>
-            </li>
+            <tr>
+                <td className="table-data">{account_name}</td>
+                <td className="table-data">${balance}</td>
+                <td className="table-data">{equities}</td>
+            </tr>
         )
     }
 }
