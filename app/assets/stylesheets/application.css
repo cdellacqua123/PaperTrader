@@ -30,6 +30,7 @@
     height: 52px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 .pt-header {
     background-image: linear-gradient(to bottom, rgba(48,56,76,255), rgba(34,36,48,255));
