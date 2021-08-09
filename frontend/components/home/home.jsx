@@ -1,23 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import exchange from '../../../public/exchange.jpg'
-
 
 class Home extends React.Component {
+
+    signUpPage = () => {
+        this.props.history.push("/signup");
+    }
+
+    loginPage = () => {
+        this.props.history.push("/login");
+    }
+
     render() {
         return(
             <div className='homepage'>
-            <h1 className='home-h1'>Paper Trader</h1>
-            <img className='home-pic'src={exchange}/>
+            
+            <h1 className='pt-header'>
+                <img className="logo" src="images/logo.png" />
+                Paper Trader
+            </h1>
+            <img className='home-pic'src="images/exchange.jpg"/>
             <div className="home-block">
                 <h1 className='about'>About this website</h1>
                 <p className="description">
                     This is sample text  that will be changed to include details
                     about what this site is, how to use it, and who it's for.
                 </p>
-                <button className='home-create'><Link to="/signup">Create Account</Link></button>
+                    <button onClick={this.signUpPage} className='home-create'>Create Profile
+                    </button>
                 <br/>
-                <button className='home-login'><Link to="/login">Login</Link></button>
+                    <button onClick={this.loginPage} className='home-login'>Login
+                    </button>
+                <br />
             </div>
             </div>
         )

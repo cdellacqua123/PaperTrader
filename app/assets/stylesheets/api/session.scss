@@ -22,21 +22,28 @@
     font-size: 1.3rem;
 }
 
-.login-desc, .login-uname, .login-pw, .signup-desc, .signup-uname, .signup-pw,
-.signup-email {
+.login-desc, .signup-desc{
     font-family: 'Playfair Display', serif;
 }
 
 
-.login-desc, .login-uname, .login-uname-field, .login-pw, .login-pw-field,
-.signup-desc, .signup-uname, .signup-uname-field, .signup-pw, .signup-pw-field,
-.signup-email, .signup-email-field
+.login-desc, .login-uname-field, .login-pw-field,
+.signup-desc, .signup-uname-field, .signup-pw-field,
+.signup-email-field
 {
     margin-left: 40%;
     margin-top: 10px;
 }
+.login-uname-field, .login-pw-field, .signup-uname-field, .signup-pw-field,
+.signup-email-field {
+    width: 300px;
+    box-shadow: none;
+    height: 44px;
+    border: 1px solid #d4d4d4;
+    padding: .25rem .75rem;
+}
 
-.login-button, .signup-button {
+.login-button, .signup-button, .guest-button {
     position: relative;
     left: 44%;
     margin-top: 10px;
@@ -45,8 +52,22 @@
     font-size: 18px;
     width: 12rem;
     padding: 1rem;
+    color: #fff;
 }
 
-.login-link, .signup-link {
-    color: #fff;
+.login-button, .signup-button{
+    margin-top: 20px;
+}
+.err {
+    color: #dc5050;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid;
+    padding: 10px;
+    width: 120px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(230, 187, 196, .5);
+
 }

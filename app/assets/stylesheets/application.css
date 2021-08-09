@@ -15,15 +15,31 @@
  */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-.home-h1 {
+.logo{
+    margin-left: 10px;
+    margin-right: 10px;
+    max-height: 40px;
+    max-width: 35px;
+}
+.home-button {
+    float: inherit;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 300px;
+    height: 52px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.pt-header {
     background-image: linear-gradient(to bottom, rgba(48,56,76,255), rgba(34,36,48,255));
     color: white;
     width: 100%;
     display:inline-block;
-    margin: 0%;
     font-family: 'Playfair Display', serif;
-    text-shadow: black;
     font-size: 40px;
+    left: 10px;
 }
 
 .home-pic {
@@ -64,16 +80,15 @@
     padding-right: 20px;
     padding-bottom: 125px;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
 }
-
 
 .home-create {
     margin-top: 10px;
 }
 .home-create:hover, .home-login:hover{
     background-color: rgba(51,58,86,255);
+    transition: .5s;
 }
 
 .home-create, .home-login{
@@ -85,6 +100,7 @@
     padding: 1rem;
     position: absolute;
     left: 25%;
+    cursor:pointer;
 }
 
 .home-login{
@@ -94,7 +110,9 @@
     justify-content: center;
 }
 
-
+.home-login-txt, .home-create-txt {
+    color: white
+}
 
 
 
