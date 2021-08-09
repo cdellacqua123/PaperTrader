@@ -9,6 +9,10 @@ import create_account_form_container from './accounts/create_account_form_contai
 
 
 
+import trades_container from './trades/trades_container';
+
+
+
 const App = () => (
     <div>
         <Switch>
@@ -18,6 +22,8 @@ const App = () => (
         <ProtectedRoute exact path='/users/account/create' component={create_account_form_container} />
         <Route exact path='/' component={Home}/>
         
+
+        <Route exact path="/trades/show" component={trades_container}/>
         </Switch>
     </div>
 );
