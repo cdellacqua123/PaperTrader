@@ -22,15 +22,14 @@
     font-size: 1.3rem;
 }
 
-.login-desc, .login-uname, .login-pw, .signup-desc, .signup-uname, .signup-pw,
-.signup-email {
+.login-desc, .signup-desc{
     font-family: 'Playfair Display', serif;
 }
 
 
-.login-desc, .login-uname, .login-uname-field, .login-pw, .login-pw-field,
-.signup-desc, .signup-uname, .signup-uname-field, .signup-pw, .signup-pw-field,
-.signup-email, .signup-email-field
+.login-desc, .login-uname-field, .login-pw-field,
+.signup-desc, .signup-uname-field, .signup-pw-field,
+.signup-email-field
 {
     margin-left: 40%;
     margin-top: 10px;
@@ -48,18 +47,20 @@
     color: #fff;
 }
 
-.login-err, .signup-err {
-    color: red;
-    float:right;
+.err {
+    color: #dc5050;
+    // float:right;
     text-align: center;
     border-radius: 15px;
     border: 2px solid;
     padding: 10px;
     width: 120px;
-    background-color: rgba(210, 129, 145, .5);
-    position: sticky;
-    right: 35%;
-    top: 39%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(230, 187, 196, .5);
+//     position: sticky;
+//     right: 35%;
+//     top: 39%;
 }
 
 // .login-err {

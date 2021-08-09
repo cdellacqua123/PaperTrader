@@ -34,7 +34,7 @@ class LoginForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li className="err" key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -43,74 +43,31 @@ class LoginForm extends React.Component {
     }
     
     render() {
-        if (this.props.errors.length) {
-            return(
-                <div>
-                    <h1 className='login-head'>Paper Trader</h1>
-                    <h2 className='login-head2'>Stock Market Simulator</h2>
-                    <h1 className='login-desc'>Log into existing profile:</h1>
-                    <form>
-                        <div className="login-err">
-                            {this.renderErrors()}
-                        </div>
-                        <br></br>
-                        <label className='login-uname'>Username:
-                            <br></br>
-                            <input
-                                className='login-uname-field'
-                                type="text"
-                                value={this.state.username}
-                                onChange={this.handleInput('username')}
-                            />
-                        </label>
-                        <br></br>
-                        <label className='login-pw'>Password:
-                            <br></br>
-                            <input
-                                className='login-pw-field'
-                                type="password"
-                                value={this.state.password}
-                                onChange={this.handleInput('password')}
-                            />
-                        </label>
-                        <br></br>
-                        <button className='login-button' onClick={this.handleSubmit} >
-                            Login
-                        </button>
-                        <br></br>
-                        <button className='guest-button' onClick={this.guestLogin} >
-                            Guest Login
-                        </button>
-                    </form>
-                </div>
-            )
-        }
-        return (
+        return(
             <div>
                 <h1 className='login-head'>Paper Trader</h1>
                 <h2 className='login-head2'>Stock Market Simulator</h2>
                 <h1 className='login-desc'>Log into existing profile:</h1>
                 <form>
+                    <div>
+                        {this.renderErrors()}
+                    </div>
                     <br></br>
-                    <label className='login-uname'>Username:
-                        <br></br>
                         <input
                             className='login-uname-field'
                             type="text"
                             value={this.state.username}
                             onChange={this.handleInput('username')}
+                            placeholder="Username"
                         />
-                    </label>
                     <br></br>
-                    <label className='login-pw'>Password:
-                        <br></br>
                         <input
                             className='login-pw-field'
                             type="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
+                            placeholder="Password"
                         />
-                    </label>
                     <br></br>
                     <button className='login-button' onClick={this.handleSubmit} >
                         Login
