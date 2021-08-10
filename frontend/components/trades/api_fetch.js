@@ -15,7 +15,7 @@ export default async function getDailyInfo(ticker) {
             }
         });
     let arg = {
-        'time': [], 'open': [], 'high': [], 'low': [], 'close': [],
+        'dateTime': [], 'open': [], 'high': [], 'low': [], 'close': [],
         'vol': []
     };
     let response = await pull;
@@ -26,7 +26,7 @@ export default async function getDailyInfo(ticker) {
         let high = parseFloat(table[date]['2. high']);
         let low = parseFloat(table[date]['3. low']);
         let close = parseFloat(table[date]['4. close']);
-        arg['time'].push(date);
+        arg['dateTime'].push(date);
         arg['open'].push(open.toFixed(2));
         arg['high'].push(high.toFixed(2));
         arg['low'].push(low.toFixed(2));
