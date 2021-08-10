@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import TradesShow from "./trades_show";
-import getDailyInfo from "./api_fetch";
+import { logout } from "../../actions/session_actions";
 
 const mDTP = dispatch => ({
-    getDailyInfo: ticker => dispatch(getDailyInfo(ticker))
+    logout: user => dispatch(logout(user))
 });
 
-export default connect(null, null)(TradesShow);
+export default connect(null, mDTP)(TradesShow);

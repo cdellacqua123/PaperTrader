@@ -6,11 +6,10 @@ export function chartData(data, ticker) {
         series: [{
             type: 'candlestick',
             data: []
-
         }],
         chart: {
             height: 500,
-            type: 'candlestick',
+            type: 'candlestick'
         },
         title: {
             text: `${ticker}`,
@@ -22,7 +21,7 @@ export function chartData(data, ticker) {
             }
         }
     };
-    
+
     for (let i = data['date'].length - 1; i >= 0; i--) {
         let date = data['date'][i];
         let open = data['open'][i];
@@ -33,14 +32,13 @@ export function chartData(data, ticker) {
             x: (date),
             y: [open, high, low, close]
         }
-        
         create.series[0].data.push(dataObj);
     }
     return create;
-}
+};
 
 export function createChart(chartInfo) {
     return (
-        new ApexCharts(document.querySelector("div"), chartInfo)
+        new ApexCharts(document.getElementById("chart"), chartInfo)
     )
-}
+};

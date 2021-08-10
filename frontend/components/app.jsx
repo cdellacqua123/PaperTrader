@@ -6,9 +6,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Home from './home/home';
 import users_container from './users/users_container';
 import create_account_form_container from './accounts/create_account_form_container';
-
-
-
 import trades_container from './trades/trades_container';
 
 
@@ -20,10 +17,8 @@ const App = () => (
         <AuthRoute exact path='/signup' component={signup_container} />
         <ProtectedRoute exact path='/users/show' component={users_container} />
         <ProtectedRoute exact path='/users/account/create' component={create_account_form_container} />
-        <Route exact path='/' component={Home}/>
-        
-
-        <Route exact path="/trades/show" component={trades_container}/>
+        <ProtectedRoute exact path="/trades/show" component={trades_container} />
+        <Route path='/' component={Home}/>
         </Switch>
     </div>
 );
