@@ -37,7 +37,6 @@ class TradesShow extends React.Component {
                 </button>
                 <div id="chart"></div>
 
-                
             </div>
         )
     }
