@@ -36,6 +36,7 @@ class TradesShow extends React.Component {
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 <div id="chart"></div>
+
                 
             </div>
         )
