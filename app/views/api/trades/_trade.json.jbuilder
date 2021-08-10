@@ -1,0 +1,1 @@
+json.extract! trade, :acc_id, :action, :ticker, :num_shares, :fill_price, :total_dr_cr
