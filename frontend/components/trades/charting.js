@@ -23,15 +23,14 @@ export function chartData(data, ticker) {
         }
     };
     
-    for (let i = data['dateTime'].length - 1; i >= 0; i--) {
-        let dateTime = data['dateTime'][i].split(' ');
-        let time = dateTime[1]
+    for (let i = data['date'].length - 1; i >= 0; i--) {
+        let date = data['date'][i];
         let open = data['open'][i];
         let high = data['high'][i];
         let low = data['low'][i];
         let close = data['close'][i];
         let dataObj = {
-            x: (time),
+            x: (date),
             y: [open, high, low, close]
         }
         

@@ -2,7 +2,7 @@ import axios from "axios";
 import 'regenerator-runtime/runtime';
 
 export default async function getDailyInfo(ticker) {
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=QYD67QW2GZO16DQF`
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=QYD67QW2GZO16DQF`;
     let pull = axios.get(url)
         .then((res) => {
             if (!res) {
@@ -15,18 +15,18 @@ export default async function getDailyInfo(ticker) {
             }
         });
     let arg = {
-        'dateTime': [], 'open': [], 'high': [], 'low': [], 'close': [],
+        'date': [], 'open': [], 'high': [], 'low': [], 'close': [],
         'vol': []
     };
     let response = await pull;
     console.log(response)
-    let table = await response.data['Time Series (1min)'];
+    let table = await response.data['Time Series (Daily)'];
     for (let date in table) {
         let open = parseFloat(table[date]['1. open']);
         let high = parseFloat(table[date]['2. high']);
         let low = parseFloat(table[date]['3. low']);
         let close = parseFloat(table[date]['4. close']);
-        arg['dateTime'].push(date);
+        arg['date'].push(date);
         arg['open'].push(open.toFixed(2));
         arg['high'].push(high.toFixed(2));
         arg['low'].push(low.toFixed(2));
