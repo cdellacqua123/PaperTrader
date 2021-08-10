@@ -9,6 +9,10 @@ class TradesShow extends React.Component {
         this.searchStock = this.searchStock.bind(this);
     }
 
+    cancel = () => {
+        this.props.history.push("/users/show");
+    }
+
     handleLogout(e) {
         e.preventDefault();
         this.props.logout(this.state);
@@ -65,7 +69,13 @@ class TradesShow extends React.Component {
                 type="text"
                 onChange={this.handleInput('ticker')}
                 />
-                <button onClick={this.searchStock}></button>
+                <button onClick={this.searchStock}>
+                    Search Ticker
+                </button>
+                <br></br>
+                <button onClick={this.cancel}>
+                    Cancel
+                </button>
             </div>
         )
     }

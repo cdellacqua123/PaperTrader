@@ -9,6 +9,9 @@ class UsersForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    placeTrade = () => {
+        this.props.history.push("trades/show")
+    }
     handleSubmit(e) {
         e.preventDefault();
         this.props.logout(this.state)
@@ -65,6 +68,7 @@ class UsersForm extends React.Component {
                 </table>
                 
             <button onClick={this.createAcct}>Create New Trading Account</button>
+            <button onClick={this.placeTrade}>Place Trade</button>
             </div>
         )
         
