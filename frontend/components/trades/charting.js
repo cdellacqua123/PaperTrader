@@ -1,5 +1,4 @@
 import ApexCharts from 'apexcharts';
-import React from 'react';
 
 export function chartData(data, ticker) {
     let create = {
