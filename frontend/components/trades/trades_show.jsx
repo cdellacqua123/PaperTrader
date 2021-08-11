@@ -7,27 +7,28 @@ class TradesShow extends React.Component {
         super(props)
         this.handleLogout = this.handleLogout.bind(this);
         this.searchStock = this.searchStock.bind(this);
-    }
+        this.check = this.check.bind(this);
+    };
 
     cancel = () => {
         this.props.history.push("/users/show");
-    }
+    };
 
     handleLogout(e) {
         e.preventDefault();
         this.props.logout(this.state);
         this.props.history.push('/');
-    }
+    };
 
     homePage = () => {
         this.props.history.push("/");
-    }
+    };
 
     handleInput(field) {
         return (e) => {
             this.setState({ [field]: e.target.value })
         }
-    }
+    };
 
     searchStock(e){
         e.preventDefault();
@@ -42,7 +43,7 @@ class TradesShow extends React.Component {
             .then(chart => { 
                 return (chart.render()) 
             })
-    }
+    };
 
     componentDidMount() {
         this.props.fetchAcctsForUser(this.props.currentUser.id);
@@ -53,10 +54,37 @@ class TradesShow extends React.Component {
             .then(chart => {
                 return (chart.render())
             })
-    }
+    };
+
+    check(e) {
+        e.preventDefault();
+        let selectedAcct = {}
+        if (!this.state) {
+            return (this.setState({['tradeErr']: "Please select an account"}))
+        }
+        for (let i = 0; i < this.props.accounts.length; i++) {
+            if (this.props.accounts[i].account_name === this.state.account){
+                selectedAcct = this.props.accounts[i]
+            }
+        };
+        let {ticker, action, numShares} = this.state;
+        if (ticker && action && numShares && selectedAcct) {
+            console.log("Working")
+        } else {
+            return (this.setState({ ['tradeErr']: "Please fill out all fields" }))
+        }
+    };
+
+    checkErrors() {
+        if (this.state && this.state.tradeErr) {
+            console.log("got here")
+            return (<h1>{this.state.tradeErr}</h1>)
+        } else {
+            return null
+        };
+    };
 
     render() {
-        console.log(this.state)
         if (!this.props.accounts){
             return null
         }
@@ -80,7 +108,6 @@ class TradesShow extends React.Component {
                     Search Ticker
                 </button>
                 <br></br>
-                <form>
                     <label>Select an account</label>
                     <select onChange={this.handleInput('account')}>
                         <option> </option>
@@ -98,7 +125,8 @@ class TradesShow extends React.Component {
                     
                     <label>Enter how many shares</label>
                     <input type="integer" onChange={this.handleInput('numShares')}/>
-                </form>
+                    <button onClick={this.check}>check</button>
+                    <div>{this.checkErrors()}</div>
                 <br></br>
                 <button onClick={this.cancel}>
                     Cancel
@@ -106,6 +134,6 @@ class TradesShow extends React.Component {
             </div>
         )
     }
-}
+};
 
 export default TradesShow;
