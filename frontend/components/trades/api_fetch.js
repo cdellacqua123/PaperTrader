@@ -31,7 +31,6 @@ export default async function getDailyInfo(ticker) {
         'vol': []
     };
     let response = await pull;
-    console.log(response)
     let table = await response.data['Time Series (Daily)'];
     for (let date in table) {
         let open = parseFloat(table[date]['1. open']);

@@ -44,17 +44,23 @@ class TradesShow extends React.Component {
             })
     }
 
+    componentDidMount() {
+        this.props.fetchAcctsForUser(this.props.currentUser.id);
+        let fetchStockData = getDailyInfo("AAPL");
+        fetchStockData
+            .then(response => chartData(response, "AAPL"))
+            .then(chartView => createChart(chartView))
+            .then(chart => {
+                return (chart.render())
+            })
+    }
+
     render() {
-        debugger
-        if (!this.state) {
-            let fetchStockData = getDailyInfo("AAPL");
-            fetchStockData
-                .then(response => chartData(response, "AAPL"))
-                .then(chartView => createChart(chartView))
-                .then(chart => {
-                    return (chart.render())
-                })
+        console.log(this.state)
+        if (!this.props.accounts){
+            return null
         }
+        let { accounts } = this.props
         return(
             <div>
                 <h1 className='pt-header'>
@@ -74,7 +80,25 @@ class TradesShow extends React.Component {
                     Search Ticker
                 </button>
                 <br></br>
-
+                <form>
+                    <label>Select an account</label>
+                    <select onChange={this.handleInput('account')}>
+                        <option> </option>
+                        {accounts.map(account => (
+                            <option >{account.account_name}</option>
+                        ))}
+                    </select>
+                    <br></br>
+                    <label>Select an action (Buy or Sell)</label>
+                    <select onChange={this.handleInput('action')}>
+                            <option> </option>
+                            <option>Buy</option>
+                            <option>Sell</option>
+                    </select>
+                    
+                    <label>Enter how many shares</label>
+                    <input type="integer" onChange={this.handleInput('numShares')}/>
+                </form>
                 <br></br>
                 <button onClick={this.cancel}>
                     Cancel
@@ -82,7 +106,6 @@ class TradesShow extends React.Component {
             </div>
         )
     }
-        
 }
 
 export default TradesShow;
