@@ -45,6 +45,7 @@ class TradesShow extends React.Component {
     }
 
     render() {
+        debugger
         if (!this.state) {
             let fetchStockData = getDailyInfo("AAPL");
             fetchStockData
@@ -72,6 +73,8 @@ class TradesShow extends React.Component {
                 <button onClick={this.searchStock}>
                     Search Ticker
                 </button>
+                <br></br>
+
                 <br></br>
                 <button onClick={this.cancel}>
                     Cancel

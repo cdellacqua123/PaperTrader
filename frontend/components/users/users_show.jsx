@@ -7,6 +7,7 @@ class UsersForm extends React.Component {
     constructor(props) {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.placeTrade = this.placeTrade.bind(this);
     }
 
     placeTrade = () => {
