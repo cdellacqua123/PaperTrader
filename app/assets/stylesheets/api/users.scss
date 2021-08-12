@@ -24,8 +24,18 @@
     color: white;
 }
 
+.table-headers {
+    font-size: 17px;
+    font-weight: bold;
+}
+
 .acct-table, .table-headers, .table-data {
-    border: 1px solid black;
+    border-top: 3px solid rgb(117, 117, 117);
+    border-bottom: 3px solid rgb(117, 117, 117);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    padding-left: 20px;
+    text-align: center;
 }
 
 .acct-table {
