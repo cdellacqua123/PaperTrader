@@ -28,7 +28,10 @@ export const login = user => dispatch => (
 
 export const logout = () => dispatch => (
     APIUtil.logout()
-        .then(() => dispatch({ type: 'LOGOUT_CURRENT_USER' }))
+        .then(() => dispatch({ type: 'LOGOUT_CURRENT_USER' })
+    , err => (
+        console.log(err.responseJSON)
+    ))
 );
 
 export const clearSessionErrors = () => (
