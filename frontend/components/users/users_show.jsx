@@ -66,9 +66,19 @@ class UsersForm extends React.Component {
                     ))
                 }
                 </table>
-                
-            <button onClick={this.createAcct}>Create New Trading Account</button>
-            <button onClick={this.placeTrade}>Place Trade</button>
+            
+
+            
+                    <button className="create-acct" onClick={this.createAcct}>
+                        Create New Trading Account
+                    </button>
+                    <br></br>
+                    <button className="trade-redirect" onClick={this.placeTrade}>
+                        Place Trade
+                    </button>
+            
+
+            
             </div>
         )
         

@@ -22,6 +22,7 @@
     padding: 10px;
     background-color: #a62436;
     color: white;
+    cursor: pointer;
 }
 
 .table-headers {
@@ -42,3 +43,26 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.trade-redirect, .create-acct{
+    align-items: center;
+    border-radius: 5px;
+    max-width: 140px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: linear-gradient(#fbfbfb,#cac9c9);
+    border-width: 1px;
+    cursor: pointer;
+};
+.trade-redirect {
+    margin-left: 55%;
+    margin-right: 2%;
+    margin-top: -4%;
+    float: left;
+}
+.create-acct {
+    margin-left: 40%;
+    margin-right: 2%;
+    margin-top: 2%;
+};
