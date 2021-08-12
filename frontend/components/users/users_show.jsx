@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import AccountIndexItem from './account_index_item';
 
 
@@ -55,7 +54,7 @@ class UsersForm extends React.Component {
                 <tr>
                     <th className="table-headers">Account Nickname</th>
                     <th className="table-headers">Cash Balance</th>
-                    <th className="table-headers">Equities</th>
+                    <th className="table-headers"># of Equities</th>
                 </tr>
                 {accounts.map(account => (
                         <AccountIndexItem

@@ -1,3 +1,4 @@
+require 'byebug'
 class Api::PositionsController < ApplicationController
 
     def create
@@ -7,6 +8,7 @@ class Api::PositionsController < ApplicationController
             if @position.save
                 @account.balance += (@position.shares * @position.price * -1).round(2)
                 @account.equities.push(@position.id)
+                @account.balance.round(2)
                 @account.save
                 render "api/positions/show"
             else
@@ -17,18 +19,19 @@ class Api::PositionsController < ApplicationController
             i = 0
             while i < @accountPositions.length
                 if @accountPositions[i].symbol == @position.symbol
-                    
                     @accountPositions[i].shares += @position.shares
                     @account.balance += (@position.shares * @position.price * -1).round(2)
-                    @accountPositions[i].save!
-                    @account.save!
+                    @account.balance.round(2)
+                    @accountPositions[i].save
+                    @account.save
                     i += @accountPositions.length
                     render "api/positions/show"
                 elsif ((i == @accountPositions.length - 1) && (@accountPositions[i].symbol != @position.symbol))
                     @position.save
                     @account.equities.push(@position.id)
                     @account.balance += (@position.shares * @position.price * -1).round(2)
-                    @account.save!
+                    @account.balance.round(2)
+                    @account.save
                     i += @accountPositions.length
                     render "api/positions/show"
                 else
