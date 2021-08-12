@@ -44,12 +44,21 @@ class SignupForm extends React.Component {
         );
     }
 
+    componentWillUnmount() {
+        this.props.clearSessionErrors();
+    }
+
     render() {
             return (
             <div>
                 <h1 className='signup-head'>Paper Trader</h1>
                 <h2 className='signup-head2'>Stock Market Simulator</h2>
-                <h1 className='signup-desc'>Create a new profile:</h1>
+                <h1 className='signup-desc'>Register</h1>
+                <h1 className='signup-or'>or
+                    <Link to='/login' className='signup-redirect'>
+                        log in
+                    </Link>
+                </h1>
                 <form>
                     <div>
                         {this.renderErrors()}
@@ -82,7 +91,6 @@ class SignupForm extends React.Component {
                     <button className='signup-button' onClick={this.handleSubmit} >
                         Sign Up
                     </button>
-
                 </form>
             </div>
         )
