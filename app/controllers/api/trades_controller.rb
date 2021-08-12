@@ -2,7 +2,10 @@ class Api::TradesController < ApplicationController
 
     def create
         @trade = Trade.new(trade_params)
+        @account = Account.find_by(id: params[:trade][:acc_id])
         if @trade.save
+            @account.trade_hist.push(@trade.id)
+            @account.save!
             render "api/trades/show"
         else
             render ["Something went wrong"]
