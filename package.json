@@ -3,9 +3,11 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.14.8",
-    "@babel/preset-env": "^7.14.8",
     "@babel/preset-react": "^7.14.5",
+    "apexcharts": "^3.27.3",
+    "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
+    "finnhub": "^1.2.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
@@ -29,8 +31,8 @@
     "postinstall": "webpack"
   },
   "engines": {
-      "node": "10.13.0",
-      "npm": "6.4.1"
+    "node": "10.13.0",
+    "npm": "6.4.1"
   },
   "repository": {
     "type": "git",
@@ -44,6 +46,9 @@
   },
   "homepage": "https://github.com/cdellacqua123/PaperTrader#readme",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/runtime": "^7.14.8",
     "file-loader": "^6.2.0"
   }
 }

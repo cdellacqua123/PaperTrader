@@ -22,7 +22,23 @@
     font-size: 1.3rem;
 }
 
-.login-desc, .signup-desc{
+.login-or {
+    text-align: center;
+    margin-top: -23px;
+    margin-left: 200px;
+}
+
+.signup-or {
+    text-align: center;
+    margin-top: -23px;
+    margin-left: 330px;
+}
+
+.login-redirect, .signup-redirect {
+        margin-left: 5px;
+}
+
+.login-desc, .signup-desc, .signup-or, .signup-redirect, .login-or, .login-redirect{
     font-family: 'Playfair Display', serif;
 }
 

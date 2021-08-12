@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_204025) do
+ActiveRecord::Schema.define(version: 2021_08_12_000931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,35 @@ ActiveRecord::Schema.define(version: 2021_08_04_204025) do
   create_table "accounts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "account_name", null: false
-    t.integer "balance", null: false
+    t.float "balance", null: false
     t.integer "equities", default: [], array: true
     t.integer "trade_hist", default: [], array: true
     t.boolean "shorting_allowed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.integer "acct_id", null: false
+    t.string "symbol", null: false
+    t.integer "shares", null: false
+    t.float "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["acct_id"], name: "index_positions_on_acct_id"
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.integer "acc_id", null: false
+    t.string "action", null: false
+    t.string "ticker", null: false
+    t.integer "num_shares", null: false
+    t.float "fill_price", null: false
+    t.float "total_dr_cr", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["acc_id"], name: "index_trades_on_acc_id"
   end
 
   create_table "users", force: :cascade do |t|

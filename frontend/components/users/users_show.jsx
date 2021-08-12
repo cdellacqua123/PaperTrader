@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import AccountIndexItem from './account_index_item';
 
 
@@ -7,8 +6,12 @@ class UsersForm extends React.Component {
     constructor(props) {
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.placeTrade = this.placeTrade.bind(this);
     }
 
+    placeTrade = () => {
+        this.props.history.push("trades/show")
+    }
     handleSubmit(e) {
         e.preventDefault();
         this.props.logout(this.state)
@@ -51,7 +54,7 @@ class UsersForm extends React.Component {
                 <tr>
                     <th className="table-headers">Account Nickname</th>
                     <th className="table-headers">Cash Balance</th>
-                    <th className="table-headers">Equities</th>
+                    <th className="table-headers"># of Equities</th>
                 </tr>
                 {accounts.map(account => (
                         <AccountIndexItem
@@ -65,6 +68,7 @@ class UsersForm extends React.Component {
                 </table>
                 
             <button onClick={this.createAcct}>Create New Trading Account</button>
+            <button onClick={this.placeTrade}>Place Trade</button>
             </div>
         )
         

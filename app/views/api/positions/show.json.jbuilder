@@ -1,0 +1,1 @@
+json.partial! "api/positions/position", position: @position

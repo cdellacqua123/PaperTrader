@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -42,12 +43,21 @@ class LoginForm extends React.Component {
         );
     }
     
+    componentWillUnmount() {
+        this.props.clearSessionErrors();
+    }
+
     render() {
         return(
             <div>
                 <h1 className='login-head'>Paper Trader</h1>
                 <h2 className='login-head2'>Stock Market Simulator</h2>
-                <h1 className='login-desc'>Log into existing profile:</h1>
+                <h1 className='login-desc'>Log In</h1>
+                <h1 className="login-or">or
+                    <Link to='/signup' className="login-redirect">
+                        create an account
+                    </Link>
+                </h1>
                 <form>
                     <div>
                         {this.renderErrors()}
@@ -70,7 +80,7 @@ class LoginForm extends React.Component {
                         />
                     <br></br>
                     <button className='login-button' onClick={this.handleSubmit} >
-                        Login
+                        Sign in
                     </button>
                     <br></br>
                     <button className='guest-button' onClick={this.guestLogin} >
