@@ -7,7 +7,8 @@ class TradesShow extends React.Component {
         super(props)
         this.handleLogout = this.handleLogout.bind(this);
         this.searchStock = this.searchStock.bind(this);
-        this.check = this.check.bind(this);
+        this.checkTrade = this.checkTrade.bind(this);
+        this.executeTrade = this.executeTrade.bind(this);
     };
 
     cancel = () => {
@@ -56,7 +57,26 @@ class TradesShow extends React.Component {
             })
     };
 
-    check(e) {
+    executeTrade(ticker, action, numShares, accountId) {
+        const that = this.props;
+        placingTrade(ticker, action, numShares, accountId, that)
+        async function placingTrade(ticker, action, numShares, accountId, props) {
+            let data = await getDailyInfo(ticker);
+            let price = data.close[0]
+            let trade = {
+                symbol: ticker, action: action,
+                acct_id: accountId, price: price, shares: numShares
+            }
+            let remTrade = {
+                ticker: ticker, action: action,
+                acc_id: accountId, fill_price: price, num_shares: numShares, total_dr_cr: (numShares * price)
+            }
+            props.placeTrade(trade)
+            props.rememberTrade(remTrade)
+        }
+    }
+
+    checkTrade(e) {
         e.preventDefault();
         let selectedAcct = {}
         if (!this.state) {
@@ -69,7 +89,9 @@ class TradesShow extends React.Component {
         };
         let {ticker, action, numShares} = this.state;
         if (ticker && action && numShares && selectedAcct) {
-            console.log("Working")
+            if (action === 'Buy') {
+                this.executeTrade(ticker, action, numShares, selectedAcct.id)
+            }
         } else {
             return (this.setState({ ['tradeErr']: "Please fill out all fields" }))
         }
@@ -125,11 +147,11 @@ class TradesShow extends React.Component {
                     
                     <label>Enter how many shares</label>
                     <input type="integer" onChange={this.handleInput('numShares')}/>
-                    <button onClick={this.check}>check</button>
+                    <button onClick={this.checkTrade}>Place Trade</button>
                     <div>{this.checkErrors()}</div>
                 <br></br>
                 <button onClick={this.cancel}>
-                    Cancel
+                    Back to Accounts page
                 </button>
             </div>
         )

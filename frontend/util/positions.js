@@ -1,7 +1,7 @@
-export const placeTrade = trade => (
+export const placeTrade = position => (
     $.ajax({
         url: 'api/positions',
         method: 'POST',
-        data: {trade}
+        data: {position}
     })
 );
