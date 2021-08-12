@@ -57,25 +57,6 @@ class TradesShow extends React.Component {
             })
     };
 
-    executeTrade(ticker, action, numShares, accountId) {
-        const that = this.props;
-        placingTrade(ticker, action, numShares, accountId, that)
-        async function placingTrade(ticker, action, numShares, accountId, props) {
-            let data = await getDailyInfo(ticker);
-            let price = data.close[0]
-            let trade = {
-                symbol: ticker, action: action,
-                acct_id: accountId, price: price, shares: numShares
-            }
-            let remTrade = {
-                ticker: ticker, action: action,
-                acc_id: accountId, fill_price: price, num_shares: numShares, total_dr_cr: (numShares * price)
-            }
-            props.placeTrade(trade)
-            props.rememberTrade(remTrade)
-        }
-    }
-
     checkTrade(e) {
         e.preventDefault();
         let selectedAcct = {}
@@ -90,17 +71,69 @@ class TradesShow extends React.Component {
         let {ticker, action, numShares} = this.state;
         if (ticker && action && numShares && selectedAcct) {
             if (action === 'Buy') {
-                this.executeTrade(ticker, action, numShares, selectedAcct.id)
+                this.executeTrade(ticker, action, numShares, selectedAcct)
+            } else if (action === 'Sell') {
+                numShares = (numShares * -1)
+                this.executeTrade(ticker, action, numShares, selectedAcct)
             }
         } else {
             return (this.setState({ ['tradeErr']: "Please fill out all fields" }))
         }
     };
 
+    executeTrade(ticker, action, numShares, account) {
+        const that = this;
+        placingTrade(ticker, action, numShares, account, that)
+        async function placingTrade(ticker, action, numShares, account, that) {
+            let data = await getDailyInfo(ticker);
+            let price = data.close[0]
+            if (price * numShares > account.balance) {
+                return (that.notEnoughFundsSetState());
+            };
+
+            let accountId = account.id
+            let trade = {
+                symbol: ticker, action: action,
+                acct_id: accountId, price: price, shares: numShares
+            };
+            let remTrade = {
+                ticker: ticker, action: action,
+                acc_id: accountId, fill_price: price, num_shares: numShares, total_dr_cr: (numShares * price).toFixed(2)
+            };
+
+            that.props.placeTrade(trade);
+            that.props.rememberTrade(remTrade);
+            that.tradeSuccessSetState();
+        }
+    }
+
+    notEnoughFundsSetState() {
+        return(this.setState({['iSF']: 'Insufficient funds for trade'}))
+    }
+
+    tradeSuccessSetState() {
+        return(this.setState({['tradePlaced']: "Trade has been placed!"}))
+    }
+
     checkErrors() {
         if (this.state && this.state.tradeErr) {
-            console.log("got here")
             return (<h1>{this.state.tradeErr}</h1>)
+        } else {
+            return null
+        };
+    };
+
+    iSFError() {
+        if (this.state && this.state.iSF) {
+            return (<h1>{this.state.iSF}</h1>)
+        } else {
+            return null
+        };
+    };
+
+    tradeSuccess() {
+        if (this.state && this.state.tradePlaced) {
+            return (<h1>{this.state.tradePlaced}</h1>)
         } else {
             return null
         };
@@ -149,6 +182,8 @@ class TradesShow extends React.Component {
                     <input type="integer" onChange={this.handleInput('numShares')}/>
                     <button onClick={this.checkTrade}>Place Trade</button>
                     <div>{this.checkErrors()}</div>
+                    <div>{this.iSFError()}</div>
+                    <div>{this.tradeSuccess()}</div>
                 <br></br>
                 <button onClick={this.cancel}>
                     Back to Accounts page
