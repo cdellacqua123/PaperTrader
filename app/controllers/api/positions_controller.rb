@@ -1,4 +1,3 @@
-require 'byebug'
 class Api::PositionsController < ApplicationController
 
     def create
@@ -8,7 +7,7 @@ class Api::PositionsController < ApplicationController
             if @position.save
                 @account.balance += (@position.shares * @position.price * -1).round(2)
                 @account.equities.push(@position.id)
-                @account.balance.round(2)
+                @account.balance = @account.balance.round(2)
                 @account.save
                 render "api/positions/show"
             else
@@ -21,16 +20,24 @@ class Api::PositionsController < ApplicationController
                 if @accountPositions[i].symbol == @position.symbol
                     @accountPositions[i].shares += @position.shares
                     @account.balance += (@position.shares * @position.price * -1).round(2)
-                    @account.balance.round(2)
-                    @accountPositions[i].save
-                    @account.save
-                    i += @accountPositions.length
-                    render "api/positions/show"
+                    @account.balance = @account.balance.round(2)
+                    if @accountPositions[i].shares == 0
+                        @accountPositions[i].destroy
+                        @account.equities = @account.equities.select{|acct_pos_id| acct_pos_id != @accountPositions[i].id}
+                        @account.save
+                        i += @accountPositions.length
+                        render "api/positions/show"
+                    else 
+                        @accountPositions[i].save
+                        @account.save
+                        i += @accountPositions.length
+                        render "api/positions/show"
+                    end
                 elsif ((i == @accountPositions.length - 1) && (@accountPositions[i].symbol != @position.symbol))
                     @position.save
                     @account.equities.push(@position.id)
                     @account.balance += (@position.shares * @position.price * -1).round(2)
-                    @account.balance.round(2)
+                    @account.balance = @account.balance.round(2)
                     @account.save
                     i += @accountPositions.length
                     render "api/positions/show"
