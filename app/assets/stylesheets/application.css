@@ -66,6 +66,8 @@
     max-width:500px;
     word-wrap:break-word;
     margin-bottom: 10px;
+    overflow-y: scroll;
+    max-height: 90px;
 }
 
 .home-block{
