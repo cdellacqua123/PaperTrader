@@ -23,7 +23,7 @@ class Home extends React.Component {
             <div className="home-block">
                 <h1 className='about'>About this website</h1>
                 <p className="description">
-                    PaperTrader is a free website that allows users to test
+                    Paper Trader is a free website that allows users to test
                     out their stock and/or ETF trading strategies without the risk
                     of losing their own money. To use it, simply create a a profile
                     through the "Sign Up" button, create a new trading account with
