@@ -30,7 +30,7 @@ class UsersForm extends React.Component {
     createAcct = () => {
         this.props.history.push("account/create");
     }
-    
+
     render() {
         if (!this.props.accounts) {
             return null
@@ -68,19 +68,13 @@ class UsersForm extends React.Component {
                     ))
                 }
                 </table>
-            
-
-            
                     <button className="create-acct" onClick={this.createAcct}>
                         Create New Trading Account
                     </button>
                     <br></br>
                     <button className="trade-redirect" onClick={this.placeTrade}>
-                        Place Trade
+                        Place a Trade
                     </button>
-            
-
-            
             </div>
         )
         
