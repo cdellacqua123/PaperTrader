@@ -12,6 +12,7 @@ class UsersForm extends React.Component {
     placeTrade = () => {
         this.props.history.push("trades/show")
     }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.logout(this.state)
@@ -29,6 +30,7 @@ class UsersForm extends React.Component {
     createAcct = () => {
         this.props.history.push("account/create");
     }
+    
     render() {
         if (!this.props.accounts) {
             return null
