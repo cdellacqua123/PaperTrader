@@ -39,20 +39,24 @@ class AccountForm extends React.Component {
                 </h1>
                 <button className="home-button" onClick={this.homePage}>
                 </button>
-
+                <h1 className="new-trade-acct-header">Create a Trading Account</h1>
                 <form>
-                <h1>Nickname:</h1>
-                    <input onChange={this.handleInput('account_name')}/>
-                <h1>Balance:</h1>
-                    <input onChange={this.handleInput('balance')}/>
+                <h1 className="new-trade-acct-nickname-head">Nickname:</h1><br></br>
+                    <input className="new-trade-acct-nickname-input" onChange={this.handleInput('account_name')}/>
+                    <br></br>
+                <h1 className="new-trade-acct-bal-head">Balance:</h1><br></br>
+                    <input className="new-trade-acct-bal-input" onChange={this.handleInput('balance')}/>
+                    <br></br>
                 {/* Shorting?: */}
                 {/* <input onChange={this.handleInput('shorting_allowed')}/> */}
-                <button onClick={this.handleSubmit}>
-                        Create Trading Account
-                </button>
-                <button onClick={this.cancel}>
+                <button className="cancel-button" onClick={this.cancel}>
                     Cancel
                 </button>
+                <br></br>
+                    <button className="create-button" onClick={this.handleSubmit}>
+                        Create Trading Account
+                    </button>
+                <br></br>
                 </form>
             </div>
         )

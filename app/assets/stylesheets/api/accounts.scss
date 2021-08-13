@@ -1,3 +1,65 @@
 // Place all the styles related to the api/accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.new-trade-acct-header {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+}
+
+.new-trade-acct-nickname-head, .new-trade-acct-bal-head{
+    float: left;
+    margin-left: 40%;
+}
+
+.new-trade-acct-nickname-head {
+    margin-top: 10px;
+}
+
+.new-trade-acct-bal-head {
+    margin-top: 10px;
+}
+.new-trade-acct-nickname-input, .new-trade-acct-bal-input{
+    width: 300px;
+    box-shadow: none;
+    height: 44px;
+    border: 1px solid #d4d4d4;
+    padding: .25rem .75rem;
+    margin-left: 40%;
+}
+
+.create-button, .cancel-button {
+    align-items: center;
+    border-radius: 5px;
+    max-width: 140px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-image: linear-gradient(#d1d1d1,#999999);
+}
+
+.create-button:hover {
+    background-image: linear-gradient(#d8d7c8, #cfbc0a);
+}
+
+.cancel-button {
+    margin-left: 40%;
+    margin-right: 2%;
+    margin-top: 1%;
+    background-image: linear-gradient(#fbfbfb,#cac9c9);
+}
+
+.create-button {
+    margin-left: 55%;
+    margin-right: 2%;
+    margin-top: -3%;
+    float: left;
+    background-image: linear-gradient(#fffeee, #bfad06);
+}
