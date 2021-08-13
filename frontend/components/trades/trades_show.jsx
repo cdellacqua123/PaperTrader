@@ -69,7 +69,7 @@ class TradesShow extends React.Component {
             }
         };
         let {ticker, action, numShares} = this.state;
-        if (ticker && action && numShares && selectedAcct) {
+        if (ticker && action && numShares && selectedAcct.id) {
             if (action === 'Buy') {
                 this.executeTrade(ticker, action, numShares, selectedAcct)
             } else if (action === 'Sell') {
@@ -108,24 +108,17 @@ class TradesShow extends React.Component {
     }
 
     notEnoughFundsSetState() {
-        return(this.setState({['iSF']: 'Insufficient funds for trade'}))
+        return (this.setState({ ['tradeErr']: 'Insufficient funds for trade'}))
     }
 
     tradeSuccessSetState() {
-        return(this.setState({['tradePlaced']: "Trade has been placed!"}))
+        this.setState({['tradePlaced']: "Trade has been placed!"})
+        this.setState({ ['tradeErr']: null})
     }
 
     checkErrors() {
         if (this.state && this.state.tradeErr) {
-            return (<h1>{this.state.tradeErr}</h1>)
-        } else {
-            return null
-        };
-    };
-
-    iSFError() {
-        if (this.state && this.state.iSF) {
-            return (<h1>{this.state.iSF}</h1>)
+            return (<h1 className="trade-err">{this.state.tradeErr}</h1>)
         } else {
             return null
         };
@@ -133,7 +126,7 @@ class TradesShow extends React.Component {
 
     tradeSuccess() {
         if (this.state && this.state.tradePlaced) {
-            return (<h1>{this.state.tradePlaced}</h1>)
+            return (<h1 className="trade-placed-success">{this.state.tradePlaced}</h1>)
         } else {
             return null
         };
@@ -155,37 +148,44 @@ class TradesShow extends React.Component {
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 <div id="chart"></div>
+                <h1 className="symbol">Symbol</h1>
+                <br></br>
                 <input 
                 type="text"
                 onChange={this.handleInput('ticker')}
+                className="ticker-input"
                 />
-                <button onClick={this.searchStock}>
+                <button onClick={this.searchStock} className="search-ticker">
                     Search Ticker
                 </button>
+                <div>{this.checkErrors()}</div>
                 <br></br>
-                    <label>Select an account</label>
-                    <select onChange={this.handleInput('account')}>
+                    <label className="select-acct-head">Select Account</label>
+                    <select className="select-acct" onChange={this.handleInput('account')}>
                         <option> </option>
                         {accounts.map(account => (
                             <option >{account.account_name}</option>
                         ))}
                     </select>
-                    <br></br>
-                    <label>Select an action (Buy or Sell)</label>
-                    <select onChange={this.handleInput('action')}>
+                    <label className="select-action-head">Select Action</label>
+                    <select className="select-action" onChange={this.handleInput('action')}>
                             <option> </option>
                             <option>Buy</option>
                             <option>Sell</option>
                     </select>
-                    
-                    <label>Enter how many shares</label>
-                    <input type="integer" onChange={this.handleInput('numShares')}/>
-                    <button onClick={this.checkTrade}>Place Trade</button>
-                    <div>{this.checkErrors()}</div>
-                    <div>{this.iSFError()}</div>
+                    <label className="quantity-head">Quantity</label>
+                    <input 
+                    type="integer" 
+                    onChange={this.handleInput('numShares')}
+                    className="quantity-input"
+                    />
+                    <button className="place-trade-button" onClick={this.checkTrade}>
+                        Place Trade
+                    </button>
+                    {/* <div>{this.checkErrors()}</div> */}
                     <div>{this.tradeSuccess()}</div>
                 <br></br>
-                <button onClick={this.cancel}>
+                <button className="back-button" onClick={this.cancel}>
                     Back to Accounts page
                 </button>
             </div>
