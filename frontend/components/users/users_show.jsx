@@ -1,6 +1,6 @@
 import React from 'react';
 import AccountIndexItem from './account_index_item';
-
+import Sidebar from '../sidebar/sidebar';
 
 class UsersForm extends React.Component {
     constructor(props) {
@@ -47,7 +47,7 @@ class UsersForm extends React.Component {
                 </button>
             <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
-            
+            <Sidebar/>
             <button className='logout' onClick={this.handleSubmit}>Logout
             </button>
             <br></br>
