@@ -48,6 +48,14 @@ class Api::PositionsController < ApplicationController
         end        
     end
 
+    def show
+        @position = Position.find(params[:id])
+        if @position
+            render :show
+        else
+            render ["Something went wrong"]
+    end
+
     private
 
     def position_params

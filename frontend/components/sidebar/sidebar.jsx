@@ -24,7 +24,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 // import "./Header.css";
 
 
-const Sidebar = () => {
+const Sidebar = (accounts) => {
 
     //create initial menuCollapse state using useState hook
     const [menuCollapse, setMenuCollapse] = useState(false)
@@ -58,6 +58,10 @@ const Sidebar = () => {
                                     <Link to="/users/account/create">Create New Account</Link>
                                     <br></br>
                                     <Link to="/users/trades/show">Place a Trade</Link>
+                                    <br></br>
+                                    <Link to="/users/accounts/show" accounts={accounts}>
+                                        View Account(s)
+                                    </Link>
                                     </div>
                             )}
                         </div>

@@ -37,6 +37,7 @@ class UsersForm extends React.Component {
         }
 
         let {accounts} = this.props
+        console.log(accounts)
         return(
             <div>
                 <h1 className='pt-header'>
@@ -47,7 +48,7 @@ class UsersForm extends React.Component {
                 </button>
             <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
-            <Sidebar/>
+            <Sidebar accounts={accounts}/>
             <button className='logout' onClick={this.handleSubmit}>Logout
             </button>
             <br></br>
