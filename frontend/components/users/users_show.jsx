@@ -54,28 +54,22 @@ class UsersForm extends React.Component {
             <br></br>
             
             <table className="acct-table">
-                <tr>
-                    <th className="table-headers">Account Nickname</th>
-                    <th className="table-headers">Cash Balance</th>
-                    <th className="table-headers"># of Equities</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th className="table-headers">Account Nickname</th>
+                        <th className="table-headers">Cash Balance</th>
+                        <th className="table-headers"># of Equities</th>
+                    </tr>
+                </thead>
                 {accounts.map(account => (
                         <AccountIndexItem
                         account_name = {account.account_name}
                         balance={account.balance}
                         equities={account.equities}
                         />
-                        
                     ))
                 }
                 </table>
-                    <button className="create-acct" onClick={this.createAcct}>
-                        Create New Trading Account
-                    </button>
-                    <br></br>
-                    <button className="trade-redirect" onClick={this.placeTrade}>
-                        Place a Trade
-                    </button>
             </div>
         )
         
