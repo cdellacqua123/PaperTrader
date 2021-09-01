@@ -1,6 +1,7 @@
 import React from 'react';
 import AccountIndexItem from './account_index_item';
 import Sidebar from '../sidebar/sidebar';
+import Header from '../header/header';
 
 class UsersForm extends React.Component {
     constructor(props) {
@@ -40,18 +41,14 @@ class UsersForm extends React.Component {
         console.log(accounts)
         return(
             <div>
-                <h1 className='pt-header'>
-                    <img className="logo" src="images/logo.png" />
-                    Paper Trader
-                </h1>
-                <button className="home-button" onClick={this.homePage}>
-                </button>
-            <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
-            <br></br>
-            <Sidebar accounts={accounts}/>
+            <Header/>
             <button className='logout' onClick={this.handleLogout}>Logout
             </button>
+            <Sidebar accounts={accounts} />
+            <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
+            
+            
             
             <table className="acct-table">
                 <thead>
