@@ -18,12 +18,37 @@ class AccountShow extends React.Component {
         
         const stateAcct = this.state.selectedAcct
         let account = this.props.accounts.find(account => account.account_name === stateAcct)
+        let positions = []
         this.props.positions.forEach( position => {
             if (position.acct_id === account.id) {
-                console.log(position)
+                positions.push([position.symbol, position.shares, position.price])
             }
         })
+        this.setState({['positions']: positions})
     };
+
+    renderPositions() {
+        
+        if (this.state && this.state.positions && this.state.positions.length > 0) {
+            console.log(this.state.positions)
+            let positions = this.state.positions
+            return(
+                <div>
+                    {positions.map(position => 
+                        <div>
+                            <h1>{position[0]}</h1>
+                            <h1>{position[1]}</h1>
+                            <h1>{position[2]}</h1>
+                        </div>
+                    )}
+                </div>
+            )
+        } else if(this.state && this.state.positions && this.state.positions.length === 0) {
+            return(
+                <h1>No positions in account</h1>
+            )
+        }
+    }
 
     componentDidMount(){
         this.props.fetchAcctsForUser(this.props.currentUser.id)
@@ -55,6 +80,7 @@ class AccountShow extends React.Component {
                 <button className="search-account" onClick={this.searchAccount}>
                     Select Account
                 </button>
+                <div>{this.renderPositions()}</div>
             </div>
         )
     }
