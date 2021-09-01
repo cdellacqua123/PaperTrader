@@ -10,7 +10,6 @@ import trades_container from './trades/trades_container';
 import account_show_container from './accounts/account_show_container';
 
 
-
 const App = () => (
     <div>
         <Switch>

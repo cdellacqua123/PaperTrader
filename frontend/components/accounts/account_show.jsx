@@ -1,11 +1,21 @@
 import React from 'react';
+import PositionRender from './position_render';
+import Sidebar from '../sidebar/sidebar';
+import Header from '../header/header';
 
 class AccountShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleInput = this.handleInput.bind(this);
         this.searchAccount = this.searchAccount.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     };
+
+    handleLogout(e) {
+        e.preventDefault();
+        this.props.logout(this.state)
+        this.props.history.push('/');
+    }
 
     handleInput(field) {
         return (e) => {
@@ -34,13 +44,20 @@ class AccountShow extends React.Component {
             let positions = this.state.positions
             return(
                 <div>
-                    {positions.map(position => 
-                        <div>
-                            <h1>{position[0]}</h1>
-                            <h1>{position[1]}</h1>
-                            <h1>{position[2]}</h1>
-                        </div>
-                    )}
+                    <table>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Quantity</th>
+                            <th>Cost Basis</th>
+                        </tr>
+                        {positions.map(position => 
+                            <PositionRender
+                                ticker = {position[0]}
+                                shares = {position[1]}
+                                price = {position[2]}
+                            />
+                        )}
+                    </table>
                 </div>
             )
         } else if(this.state && this.state.positions && this.state.positions.length === 0) {
@@ -70,6 +87,10 @@ class AccountShow extends React.Component {
         let {accounts} = this.props
         return(
             <div>
+                <Header/>
+                <button className='logout' onClick={this.handleLogout}>Logout
+                </button>
+                <Sidebar/>
                 <label className="select-acct-head">Please Select an Account</label>
                 <select className="select-acct" onChange={this.handleInput('selectedAcct')}>
                     <option> </option>

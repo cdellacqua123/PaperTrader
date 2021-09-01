@@ -5,7 +5,7 @@ import Sidebar from '../sidebar/sidebar';
 class UsersForm extends React.Component {
     constructor(props) {
         super(props)
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
         this.placeTrade = this.placeTrade.bind(this);
     }
 
@@ -13,7 +13,7 @@ class UsersForm extends React.Component {
         this.props.history.push("trades/show")
     }
 
-    handleSubmit(e) {
+    handleLogout(e) {
         e.preventDefault();
         this.props.logout(this.state)
         this.props.history.push('/');
@@ -49,7 +49,7 @@ class UsersForm extends React.Component {
             <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
             <Sidebar accounts={accounts}/>
-            <button className='logout' onClick={this.handleSubmit}>Logout
+            <button className='logout' onClick={this.handleLogout}>Logout
             </button>
             <br></br>
             
