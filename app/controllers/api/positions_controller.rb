@@ -1,3 +1,4 @@
+require 'byebug'
 class Api::PositionsController < ApplicationController
 
     def create
@@ -49,11 +50,13 @@ class Api::PositionsController < ApplicationController
     end
 
     def show
-        @position = Position.find(params[:id])
-        if @position
-            render :show
+        @account = Account.find(params[:id])
+        if @account.positions.length > 0
+            @positions = Position.select{ |pos| pos.acct_id == @account.id}
+            render "api/positions/index"
         else
-            render ["Something went wrong"]
+            render json: @account.errors.full_messages, status: 404
+        end
     end
 
     private

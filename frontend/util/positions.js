@@ -6,9 +6,9 @@ export const placeTrade = position => (
     })
 );
 
-export const findPosition = positionId => (
+export const findPositions = positionId => (
     $.ajax({
-        url: 'api/positions',
+        url: `api/positions/${positionId}`,
         method: 'GET',
         data: {positionId}
     })
