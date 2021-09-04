@@ -7,9 +7,10 @@ const tradesReducer = (oldState = {}, action) => {
             return Object.assign({}, oldState, action.trades);
         case (FIND_TRADES):
             let tradesState = []
-            tradesState.push(Object.values(oldState))
+            if (Object.values(oldState).length > 0) {
+                tradesState.push(Object.values(oldState).flat())
+            }
             tradesState.push(Object.values(action.trades))
-            console.log(tradesState)
             return tradesState
         default:
             return oldState;

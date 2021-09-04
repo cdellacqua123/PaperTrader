@@ -17,6 +17,18 @@ class AccountShow extends React.Component {
         this.props.history.push('/');
     }
 
+    componentDidMount() {
+        this.props.fetchAcctsForUser(this.props.currentUser.id)
+            .then(response =>
+                Object.values(response.accounts).forEach(account => {
+                    if (account.equities.length > 0) {
+                        this.props.findPositions(account.id);
+                    }
+                }
+                )
+            )
+    };
+
     handleInput(field) {
         return (e) => {
             this.setState({ [field]: e.target.value })
@@ -44,7 +56,6 @@ class AccountShow extends React.Component {
 
     renderPositions() {
         if (this.state && this.state.noAcct) {
-            console.log('hello')
             return (
                 <h1 className="cash-amt-pos">No account selected</h1>
             )
@@ -84,19 +95,6 @@ class AccountShow extends React.Component {
             )
         }
     }
-
-    componentDidMount(){
-        this.props.fetchAcctsForUser(this.props.currentUser.id)
-            .then(response =>   
-                Object.values(response.accounts).forEach(account => 
-                {
-                    if (account.equities.length > 0) {
-                        this.props.findPositions(account.id);
-                    }
-                }
-            )
-        )
-    };
 
     render(){
         if (!this.props.accounts) {
