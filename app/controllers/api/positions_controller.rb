@@ -51,7 +51,7 @@ class Api::PositionsController < ApplicationController
 
     def show
         @account = Account.find(params[:id])
-        if @account.positions.length > 0
+        if @account.equities.length > 0
             @positions = Position.select{ |pos| pos.acct_id == @account.id}
             render "api/positions/index"
         else

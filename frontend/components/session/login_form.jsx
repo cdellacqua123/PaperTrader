@@ -49,15 +49,20 @@ class LoginForm extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="login-container">
                 <h1 className='login-head'>Paper Trader</h1>
                 <h2 className='login-head2'>Stock Market Simulator</h2>
-                <h1 className='login-desc'>Log In</h1>
-                <h1 className="login-or">or
+                <h1 className='login-desc'>Log In 
+                    
+                
+                </h1>
+
+                <h2 className="login-or">or
                     <Link to='/signup' className="login-redirect">
                         create an account
                     </Link>
-                </h1>
+                </h2>
+                
                 <form>
                     <div>
                         {this.renderErrors()}

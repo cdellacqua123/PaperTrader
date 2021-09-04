@@ -60,7 +60,11 @@ const Sidebar = (accounts) => {
                                     <Link to="/users/trades/show">Place a Trade</Link>
                                     <br></br>
                                     <Link to="/users/accounts/show" accounts={accounts}>
-                                        View Account(s)
+                                        View Accounts
+                                    </Link>
+                                    <br></br>
+                                    <Link to="/users/trades/history">
+                                        Trade History
                                     </Link>
                                     </div>
                             )}

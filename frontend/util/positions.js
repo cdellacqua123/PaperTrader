@@ -6,10 +6,10 @@ export const placeTrade = position => (
     })
 );
 
-export const findPositions = positionId => (
+export const findPositions = acctId => (
     $.ajax({
-        url: `api/positions/${positionId}`,
+        url: `api/positions/${acctId}`,
         method: 'GET',
-        data: {positionId}
+        data: {acctId}
     })
 )

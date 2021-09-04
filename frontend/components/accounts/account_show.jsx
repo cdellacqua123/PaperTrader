@@ -46,7 +46,7 @@ class AccountShow extends React.Component {
         if (this.state && this.state.noAcct) {
             console.log('hello')
             return (
-                <h1>No account selected</h1>
+                <h1 className="cash-amt-pos">No account selected</h1>
             )
         }
         else if (this.state && this.state.positions && this.state.positions.length > 1) {
@@ -54,7 +54,7 @@ class AccountShow extends React.Component {
             return(
                 <div>
                     <h1 className="cash-head-pos">Cash</h1>
-                    <h1>{positions[0]}</h1>
+                    <h1 className="cash-amt-pos">{positions[0]}</h1>
                     <table className="render-pos-table">
                         <thead>
                             <tr>
@@ -78,8 +78,8 @@ class AccountShow extends React.Component {
             return(
                 <div>
                     <h1 className="cash-head-pos">Cash</h1>
-                    <h1>{positions[0]}</h1>
-                    <h1>No positions in account</h1>
+                    <h1 className="cash-amt-pos">{positions[0]}</h1>
+                    <h1 className="cash-amt-pos">No positions in account</h1>
                 </div>
             )
         }

@@ -10,7 +10,11 @@
     font-size: 2rem;
     margin-bottom: 10px;
 }
-
+.login-container, .signup-container {
+    width: 100%;
+    max-width: 380px;
+    margin: auto;
+}
 .login-head2, .signup-head2 {
     font-family: 'Playfair Display', serif;
     text-align: center;
@@ -20,18 +24,12 @@
 
 .login-desc, .signup-desc {
     font-size: 1.3rem;
+    float: left
 }
 
-.login-or {
-    text-align: center;
-    margin-top: -23px;
-    margin-left: 200px;
-}
-
-.signup-or {
-    text-align: center;
-    margin-top: -23px;
-    margin-left: 330px;
+.login-or, .signup-or {
+    float: right;
+    margin-top: 5px
 }
 
 .login-redirect, .signup-redirect {
@@ -43,16 +41,16 @@
 }
 
 
-.login-desc, .login-uname-field, .login-pw-field,
-.signup-desc, .signup-uname-field, .signup-pw-field,
+.login-uname-field, .login-pw-field,
+.signup-uname-field, .signup-pw-field,
 .signup-email-field
 {
-    margin-left: 40%;
+    // margin-left: 40%;
     margin-top: 10px;
 }
 .login-uname-field, .login-pw-field, .signup-uname-field, .signup-pw-field,
 .signup-email-field {
-    width: 300px;
+    width: 100%;
     box-shadow: none;
     height: 44px;
     border: 1px solid #d4d4d4;
@@ -60,8 +58,8 @@
 }
 
 .login-button, .signup-button, .guest-button {
-    position: relative;
-    left: 44%;
+    // position: relative;
+    // left: 44%;
     margin-top: 10px;
     background-color: #323b55;
     border: none;
@@ -82,7 +80,7 @@
     border: 2px solid;
     padding: 10px;
     width: 120px;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(230, 187, 196, .5);
