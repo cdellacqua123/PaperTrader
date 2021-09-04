@@ -47,7 +47,7 @@ class TradeHistory extends React.Component {
     renderTrades() {
         if (this.state && this.state.noAcct) {
             return (
-                <h1 className="cash-amt-pos">No account selected</h1>
+                <h1 className="no-acct-trd-hist">No account selected</h1>
             )
         }
         else if (this.state && this.state.acctsTrades && this.state.acctsTrades.length > 0) {
