@@ -69,7 +69,7 @@ class TradeHistory extends React.Component {
                             <TradeRender
                                 action={trade.action}
                                 ticker={trade.ticker}
-                                price={trade.price}
+                                price={trade.fill_price}
                                 quantity={trade.num_shares}
                                 amount={trade.total_dr_cr}
                             />
