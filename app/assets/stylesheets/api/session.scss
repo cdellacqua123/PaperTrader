@@ -45,12 +45,8 @@
 .signup-uname-field, .signup-pw-field,
 .signup-email-field
 {
-    // margin-left: 40%;
     margin-top: 10px;
-}
-.login-uname-field, .login-pw-field, .signup-uname-field, .signup-pw-field,
-.signup-email-field {
-    width: 100%;
+    width: 93%;
     box-shadow: none;
     height: 44px;
     border: 1px solid #d4d4d4;
@@ -58,9 +54,8 @@
 }
 
 .login-button, .signup-button, .guest-button {
-    // position: relative;
-    // left: 44%;
     margin-top: 10px;
+    margin-left: 25%;
     background-color: #323b55;
     border: none;
     font-size: 18px;
