@@ -9,6 +9,7 @@ import create_account_form_container from './accounts/create_account_form_contai
 import trades_container from './trades/trades_container';
 import account_show_container from './accounts/account_show_container';
 import trade_history_container from './trades/trade_history_container';
+import account_edit_container from './accounts/account_edit_container';
 
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
         <ProtectedRoute exact path='/users/account/create' component={create_account_form_container} />
         <ProtectedRoute exact path="/users/trades/show" component={trades_container} />
         <ProtectedRoute exact path="/users/accounts/show" component={account_show_container} />
+        <ProtectedRoute exact path="/users/accounts/edit" component={account_edit_container} />
         <ProtectedRoute exact path="/users/trades/history" component={trade_history_container} />
         <Route path='/' component={Home}/>
         </Switch>

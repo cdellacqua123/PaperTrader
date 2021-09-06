@@ -66,6 +66,10 @@ const Sidebar = (accounts) => {
                                     <Link to="/users/trades/history">
                                         Trade History
                                     </Link>
+                                    <br></br>
+                                    <Link to="/users/accounts/edit">
+                                        Edit Accounts
+                                    </Link>
                                     </div>
                             )}
                         </div>
