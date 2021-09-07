@@ -22,8 +22,8 @@ class TradeHistory extends React.Component {
                         this.props.findAllTrades(account.id);
                     }
                 }
-                )
             )
+        )
     };
 
     searchAccount(e) {
