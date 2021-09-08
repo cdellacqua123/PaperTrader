@@ -28,6 +28,13 @@ class Api::AccountsController < ApplicationController
         end
     end
 
+    def destroy
+        @account = Account.find(params[:id])
+        Trade.where(acc_id: @account.id).delete_all
+        Position.where(acct_id: @account.id).delete_all
+        @account.delete
+    end
+
     private
     def account_params
         params.require(:account).permit(:account_name, :balance, :shorting_allowed, :user_id)

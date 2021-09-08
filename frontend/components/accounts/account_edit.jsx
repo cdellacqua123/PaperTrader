@@ -6,6 +6,10 @@ class AccountEdit extends React.Component {
         this.handleInput = this.handleInput.bind(this)
         this.searchAccount = this.searchAccount.bind(this)
         this.changeAccount = this.changeAccount.bind(this)
+        this.deleteCheck = this.deleteCheck.bind(this)
+        this.deleteCancel = this.deleteCancel.bind(this)
+        this.deleteAcct = this.deleteAcct.bind(this)
+        // this.deleteAcct = this.deleteAcct.bind(this)
     }
 
     componentDidMount() {
@@ -27,6 +31,7 @@ class AccountEdit extends React.Component {
             this.setState({ ['acctToEditId']: account.id })
             this.setState({ ['acctToEditName']: account.account_name })
             this.setState({ ['acctToEditBal']: account.balance })
+            this.setState({ 'deleteSuccess': false })
 
         } else {
             this.setState({ 'noAcct': true })
@@ -42,13 +47,54 @@ class AccountEdit extends React.Component {
                 balance: this.state.acctToEditBal,
                 id: this.state.acctToEditId
             })
-            // Success on change needed
+            // Success on edit render needed
         } else if (!parseInt(this.state.acctToEditBal)){
             console.log('Enter a correct Balance')
         } else {
             console.log('Please make an account name that doesnt match another account name')
         }
         
+    }
+
+    deleteCheck(e) {
+        e.preventDefault();
+        this.setState({'acctToDeleteId': this.state.acctToEditId})
+        this.setState({ 'acctToDeleteName': this.state.acctToEditName })
+    }
+
+    deleteAcct(e) {
+        e.preventDefault();
+        this.props.deleteAcct(this.state.acctToDeleteId)
+        this.setState({'acctToDeleteId': false})
+        this.setState({ 'acctToDeleteName': false })
+        this.setState({'deleteSuccess': true})
+        this.setState({'acctToEditId': false})
+    }
+
+    deleteCancel(e) {
+        e.preventDefault();
+        this.setState({ 'acctToDeleteId': false })
+        this.setState({ 'acctToDeleteName': false })
+    }
+
+    deleteSuccessRender() {
+        if (this.state && this.state.deleteSuccess) {
+            return(
+                <h1>Account successfully deleted</h1>
+            )
+        }
+    }
+
+    deleteCheckRender() {
+        if (this.state && this.state.acctToDeleteName) {
+            return (
+                <div>
+                    <h1>Are you sure you want to delete account '{this.state.acctToDeleteName}'?</h1>
+                    <button onClick={this.deleteAcct}>Yes</button>
+                    <button onClick={this.deleteCancel}>No</button>
+                </div>
+            )
+        }
     }
 
     renderEdit() {
@@ -68,7 +114,7 @@ class AccountEdit extends React.Component {
                         onChange={this.handleInput('acctToEditBal')}
                     />
                     <button onClick={this.changeAccount}>Submit Changes</button>
-                    <button>Delete Account</button>
+                    <button onClick={this.deleteCheck}>Delete Account</button>
                 </div>
             )
         }
@@ -92,6 +138,8 @@ class AccountEdit extends React.Component {
                     Select Account
                 </button>
                 <div>{this.renderEdit()}</div>
+                <div>{this.deleteCheckRender()}</div>
+                <div>{this.deleteSuccessRender()}</div>
             </div>
         )
     }
