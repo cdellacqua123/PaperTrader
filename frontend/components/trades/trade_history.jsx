@@ -1,5 +1,7 @@
 import React from 'react';
 import TradeRender from './trade_render';
+import Sidebar from '../sidebar/sidebar';
+import Header from '../header/header';
 
 class TradeHistory extends React.Component {
     constructor(props) {
@@ -95,6 +97,10 @@ class TradeHistory extends React.Component {
         let {accounts} = this.props
         return(
             <div>
+                <Header />
+                <button className='logout' onClick={this.handleLogout}>Logout
+                </button>
+                <Sidebar/>
                 <h1 className="select-acct-head-hist">Please Select an Account</h1>
                 <div className="select-n-button-hist">
                     <select className="select-hist" onChange={this.handleInput('selectedAcct')}>

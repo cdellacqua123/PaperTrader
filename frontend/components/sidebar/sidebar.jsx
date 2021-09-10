@@ -32,20 +32,23 @@ const Sidebar = (accounts) => {
     //create a custom function that will change menucollapse state from false to true and true to false
     const menuIconClick = () => {
         //condition checking to change state from true to false and vice versa
-        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+        // menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(false);
     };
 
     return (
         <>
             <div id="header">
                 {/* collapsed props to change menu size using menucollapse state */}
-                <ProSidebar collapsed={menuCollapse}>
+                {/* collapsed={menuCollapse} */}
+                <ProSidebar collapsed={false}>
                     <SidebarHeader>
                         <div className="logotext">
                             {/* small and big change using menucollapse state */}
-                            <p>{menuCollapse ? "Logo" : "Big Logo"}</p>
+                            {/* <p>{menuCollapse ? "Logo" : "Big Logo"}</p> */}
                         </div>
-                        <div className="closemenu" onClick={menuIconClick}>
+                        {/* onClick={menuIconClick} */}
+                        <div className="closemenu" >
                             {/* changing menu collapse icon on click */}
                             {menuCollapse ? (
                                 
@@ -53,7 +56,9 @@ const Sidebar = (accounts) => {
                                 
                             ) : (
                                 <div>
-                                    <FiArrowLeftCircle />
+                                    {/* <FiArrowLeftCircle /> */}
+                                    <br></br>
+                                    <Link to="/users/show">Home</Link>
                                     <br></br>
                                     <Link to="/users/account/create">Create New Account</Link>
                                     <br></br>

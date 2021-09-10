@@ -1,4 +1,6 @@
 import React from "react";
+import Sidebar from "../sidebar/sidebar";
+import Header from "../header/header";
 
 class AccountEdit extends React.Component {
     constructor(props) {
@@ -53,7 +55,6 @@ class AccountEdit extends React.Component {
         } else {
             console.log('Please make an account name that doesnt match another account name')
         }
-        
     }
 
     deleteCheck(e) {
@@ -128,6 +129,10 @@ class AccountEdit extends React.Component {
         console.log(this.state)
         return(
             <div>
+                <Header/>
+                <button className='logout' onClick={this.handleLogout}>Logout
+                </button>
+                {/* <Sidebar/> */}
                 <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
                     <option> </option>
                     {accounts.map(account => (
