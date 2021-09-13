@@ -55,26 +55,38 @@ const Sidebar = (accounts) => {
                                 <FiArrowRightCircle />
                                 
                             ) : (
-                                <div>
+                                <div className="sidebar">
                                     {/* <FiArrowLeftCircle /> */}
                                     <br></br>
-                                    <Link to="/users/show">Home</Link>
+                                    <h1 >
+                                        Home
+                                    </h1>
+                                    <Link className='sidebar-links' to={'/users/show'}></Link>
                                     <br></br>
-                                    <Link to="/users/account/create">Create New Account</Link>
+                                    <h1>
+                                        Create New Account
+                                    </h1>
+                                    <Link className='sidebar-links' to={'/users/account/create'}></Link>
                                     <br></br>
-                                    <Link to="/users/trades/show">Place a Trade</Link>
+                                    <h1>
+                                        Place a Trade
+                                    </h1>
+                                    <Link className='sidebar-links' to={'/users/trades/show'}></Link>
                                     <br></br>
-                                    <Link to="/users/accounts/show" accounts={accounts}>
+                                    <h1>
                                         View Accounts
-                                    </Link>
+                                    </h1>
+                                    <Link className='sidebar-links' to={'/users/accounts/show'}></Link>
                                     <br></br>
-                                    <Link to="/users/trades/history">
+                                    <h1>
                                         Trade History
-                                    </Link>
+                                    </h1>
+                                    <Link className='sidebar-links' to={'/users/trades/history'}></Link>
                                     <br></br>
-                                    <Link to="/users/accounts/edit">
+                                    <h1>
                                         Edit Accounts
-                                    </Link>
+                                    </h1>
+                                    <Link className='sidebar-links' to={'/users/accounts/edit'}></Link>
                                     </div>
                             )}
                         </div>
