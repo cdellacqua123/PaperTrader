@@ -19,7 +19,12 @@
 }
 
 .sidebar-links:hover {
-    background-color: #8c8c8c4a;
+    // box-shadow: 5px 0 10px 1px rgb(217, 226, 249), -5px 0 10px 1px rgb(217, 226, 249);
+    background-color: rgb(217, 226, 249);
+    transition: .5s;
+    height: 50px;
+    line-height: 50px;
+    // rgb(217, 226, 249);
 }
 
 // .sidebar {
