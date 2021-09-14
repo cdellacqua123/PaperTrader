@@ -46,10 +46,11 @@ class AccountForm extends React.Component {
         return(
             <div>
                 <Header/>
-                <br></br>
+                {/* <br></br> */}
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 <Sidebar/>
+                <div className='new-acct-container'>
                 <h1 className="new-trade-acct-header">Create a Trading Account</h1>
                 <form>
                 <h1 className="new-trade-acct-nickname-head">Nickname:</h1><br></br>
@@ -60,15 +61,16 @@ class AccountForm extends React.Component {
                     <br></br>
                 {/* Shorting?: */}
                 {/* <input onChange={this.handleInput('shorting_allowed')}/> */}
-                <button className="cancel-button" onClick={this.cancel}>
+                {/* <button className="cancel-button" onClick={this.cancel}>
                     Cancel
-                </button>
+                </button> */}
                 <br></br>
                     <button className="create-button" onClick={this.handleSubmit}>
-                        Create Trading Account
+                        Create Account
                     </button>
-                <br></br>
+                {/* <br></br> */}
                 </form>
+                </div>
             </div>
         )
     }
