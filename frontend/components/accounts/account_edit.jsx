@@ -101,21 +101,29 @@ class AccountEdit extends React.Component {
     renderEdit() {
         if (this.state && this.state.acctToEditId) {
             return (
-                <div>
+                <div className='edit-acct-container'>
                     <h1>Edit Account Nickname</h1>
                     <input
+                        className='edit-acct-name-input'
                         type='text'
                         value={this.state.acctToEditName}
                         onChange={this.handleInput('acctToEditName')}
                     />
-                    <h1>Edit Account Balance</h1>
+                    <h1 className='edit-bal-h1'>Edit Account Balance</h1>
                     <input
+                        className='edit-acct-bal-input'
                         type="text"
                         value={this.state.acctToEditBal}
                         onChange={this.handleInput('acctToEditBal')}
                     />
-                    <button onClick={this.changeAccount}>Submit Changes</button>
-                    <button onClick={this.deleteCheck}>Delete Account</button>
+                    <br></br>
+                    <button onClick={this.changeAccount} className='submit-edit'>
+                        Submit Changes
+                    </button>
+                    <br></br>
+                    <button onClick={this.deleteCheck} className='delete-acct'>
+                        Delete Account
+                    </button>
                 </div>
             )
         }
@@ -133,7 +141,9 @@ class AccountEdit extends React.Component {
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 {/* <Sidebar/> */}
-                <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
+                <h1 className='edit-acct-header'>Edit An Account</h1>
+                <div className='select-n-button-edit'>
+                <select className="select-acct-edit" onChange={this.handleInput('selectedAcct')}>
                     <option> </option>
                     {accounts.map(account => (
                         <option >{account.account_name}</option>
@@ -142,6 +152,7 @@ class AccountEdit extends React.Component {
                 <button className="search-acct-edit" onClick={this.searchAccount}>
                     Select Account
                 </button>
+                </div>
                 <div>{this.renderEdit()}</div>
                 <div>{this.deleteCheckRender()}</div>
                 <div>{this.deleteSuccessRender()}</div>
