@@ -24,7 +24,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 // import "./Header.css";
 
 
-const Sidebar = () => {
+const Sidebar = (accounts) => {
 
     //create initial menuCollapse state using useState hook
     const [menuCollapse, setMenuCollapse] = useState(false)
@@ -32,33 +32,52 @@ const Sidebar = () => {
     //create a custom function that will change menucollapse state from false to true and true to false
     const menuIconClick = () => {
         //condition checking to change state from true to false and vice versa
-        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+        // menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
+        menuCollapse ? setMenuCollapse(false) : setMenuCollapse(false);
     };
 
     return (
         <>
             <div id="header">
                 {/* collapsed props to change menu size using menucollapse state */}
-                <ProSidebar collapsed={menuCollapse}>
+                {/* collapsed={menuCollapse} */}
+                <ProSidebar collapsed={false}>
                     <SidebarHeader>
                         <div className="logotext">
                             {/* small and big change using menucollapse state */}
-                            <p>{menuCollapse ? "Logo" : "Big Logo"}</p>
+                            {/* <p>{menuCollapse ? "Logo" : "Big Logo"}</p> */}
                         </div>
-                        <div className="closemenu" onClick={menuIconClick}>
+                        {/* onClick={menuIconClick} */}
+                        <div className="closemenu" >
                             {/* changing menu collapse icon on click */}
                             {menuCollapse ? (
                                 
                                 <FiArrowRightCircle />
                                 
                             ) : (
-                                <div>
-                                    <FiArrowLeftCircle />
-                                    <br></br>
-                                    <Link to="/users/account/create">Create New Account</Link>
-                                    <br></br>
-                                    <Link to="/users/trades/show">Place a Trade</Link>
-                                    </div>
+                                <div className="sidebar">
+                                    {/* <FiArrowLeftCircle /> */}
+                                    <ul>
+                                    <li className="sidebar-li">
+                                    <Link className='sidebar-links' to={'/users/show'}>Home</Link>
+                                    </li>
+                                    <li className="sidebar-li">
+                                    <Link className='sidebar-links' to={'/users/account/create'}>Create New Account</Link>
+                                    </li>
+                                    <li className="sidebar-li">
+                                    <Link className='sidebar-links' to={'/users/trades/show'}>Place a Trade</Link>
+                                    </li>
+                                    <li className="sidebar-li">
+                                    <Link className='sidebar-links' to={'/users/accounts/show'}>View Accounts</Link>
+                                    </li>
+                                    <li className="sidebar-li"> 
+                                    <Link className='sidebar-links' to={'/users/trades/history'}>Trade History</Link>
+                                    </li>
+                                    <li className="sidebar-li">
+                                    <Link className='sidebar-links' to={'/users/accounts/edit'}>Edit Accounts</Link>
+                                    </li>
+                                    </ul>
+                                </div>
                             )}
                         </div>
                         {/* <SidebarContent>

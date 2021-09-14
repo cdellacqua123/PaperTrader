@@ -1,6 +1,8 @@
 import React from 'react';
 import getDailyInfo from './api_fetch';
 import { chartData, createChart } from './charting';
+import Header from '../header/header';
+import Sidebar from '../sidebar/sidebar';
 
 class TradesShow extends React.Component {
     constructor(props) {
@@ -139,12 +141,7 @@ class TradesShow extends React.Component {
         let { accounts } = this.props
         return(
             <div>
-                <h1 className='pt-header'>
-                    <img className="logo" src="images/logo.png" />
-                    Paper Trader
-                </h1>
-                <button className="home-button" onClick={this.homePage}/>
-                <br></br>
+                <Header/>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 <div id="chart"></div>

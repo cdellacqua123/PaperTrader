@@ -50,7 +50,7 @@ class SignupForm extends React.Component {
 
     render() {
             return (
-            <div>
+            <div className='signup-container'>
                 <h1 className='signup-head'>Paper Trader</h1>
                 <h2 className='signup-head2'>Stock Market Simulator</h2>
                 <h1 className='signup-desc'>Register</h1>

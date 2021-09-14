@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from '../header/header';
+import Sidebar from '../sidebar/sidebar';
 
 class AccountForm extends React.Component {
     constructor(props){
@@ -43,15 +45,11 @@ class AccountForm extends React.Component {
     render(){
         return(
             <div>
-                <h1 className='pt-header'>
-                    <img className="logo" src="images/logo.png" />
-                    Paper Trader
-                </h1>
-                <button className="home-button" onClick={this.homePage}>
-                </button>
+                <Header/>
                 <br></br>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
+                <Sidebar/>
                 <h1 className="new-trade-acct-header">Create a Trading Account</h1>
                 <form>
                 <h1 className="new-trade-acct-nickname-head">Nickname:</h1><br></br>

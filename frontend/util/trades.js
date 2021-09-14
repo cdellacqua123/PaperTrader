@@ -5,3 +5,11 @@ export const rememberTrade = trade => (
         data: { trade }
     })
 );
+
+export const findAllTrades = acctId => (
+    $.ajax({
+        url: `api/trades/${acctId}`,
+        method: 'GET',
+        data: { acctId }
+    })
+);

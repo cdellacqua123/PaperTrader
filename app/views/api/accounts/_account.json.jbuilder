@@ -1,1 +1,1 @@
-json.extract! account, :id, :user_id, :account_name, :balance, :shorting_allowed, :equities
+json.extract! account, :id, :user_id, :account_name, :balance, :shorting_allowed, :equities, :trade_hist

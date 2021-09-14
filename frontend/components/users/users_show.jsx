@@ -1,11 +1,12 @@
 import React from 'react';
 import AccountIndexItem from './account_index_item';
 import Sidebar from '../sidebar/sidebar';
+import Header from '../header/header';
 
 class UsersForm extends React.Component {
     constructor(props) {
         super(props)
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
         this.placeTrade = this.placeTrade.bind(this);
     }
 
@@ -13,7 +14,7 @@ class UsersForm extends React.Component {
         this.props.history.push("trades/show")
     }
 
-    handleSubmit(e) {
+    handleLogout(e) {
         e.preventDefault();
         this.props.logout(this.state)
         this.props.history.push('/');
@@ -37,44 +38,35 @@ class UsersForm extends React.Component {
         }
 
         let {accounts} = this.props
+        console.log(accounts)
         return(
             <div>
-                <h1 className='pt-header'>
-                    <img className="logo" src="images/logo.png" />
-                    Paper Trader
-                </h1>
-                <button className="home-button" onClick={this.homePage}>
-                </button>
+            <Header/>
+            <button className='logout' onClick={this.handleLogout}>Logout
+            </button>
+            <Sidebar accounts={accounts} />
             <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
-            <Sidebar/>
-            <button className='logout' onClick={this.handleSubmit}>Logout
-            </button>
-            <br></br>
+            
+            
             
             <table className="acct-table">
-                <tr>
-                    <th className="table-headers">Account Nickname</th>
-                    <th className="table-headers">Cash Balance</th>
-                    <th className="table-headers"># of Equities</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th className="table-headers">Account Nickname</th>
+                        <th className="table-headers">Cash Balance</th>
+                        <th className="table-headers"># of Equities</th>
+                    </tr>
+                </thead>
                 {accounts.map(account => (
                         <AccountIndexItem
                         account_name = {account.account_name}
                         balance={account.balance}
                         equities={account.equities}
                         />
-                        
                     ))
                 }
                 </table>
-                    <button className="create-acct" onClick={this.createAcct}>
-                        Create New Trading Account
-                    </button>
-                    <br></br>
-                    <button className="trade-redirect" onClick={this.placeTrade}>
-                        Place a Trade
-                    </button>
             </div>
         )
         

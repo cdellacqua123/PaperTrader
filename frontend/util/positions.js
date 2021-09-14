@@ -5,3 +5,11 @@ export const placeTrade = position => (
         data: {position}
     })
 );
+
+export const findPositions = acctId => (
+    $.ajax({
+        url: `api/positions/${acctId}`,
+        method: 'GET',
+        data: {acctId}
+    })
+)

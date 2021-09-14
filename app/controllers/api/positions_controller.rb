@@ -1,3 +1,4 @@
+require 'byebug'
 class Api::PositionsController < ApplicationController
 
     def create
@@ -46,6 +47,16 @@ class Api::PositionsController < ApplicationController
                 end
             end
         end        
+    end
+
+    def show
+        @account = Account.find(params[:id])
+        if @account.equities.length > 0
+            @positions = Position.select{ |pos| pos.acct_id == @account.id}
+            render "api/positions/index"
+        else
+            render json: @account.errors.full_messages, status: 404
+        end
     end
 
     private

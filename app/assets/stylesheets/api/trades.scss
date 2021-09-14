@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
+// Trades Show:
+
 .symbol, .select-acct-head, .select-action-head, .quantity-head {
     font-family: 'Playfair Display', serif;
 }
@@ -110,4 +112,41 @@
     width: 120px;
     margin-left: 55%;
     margin-top: -3%;
+}
+
+
+// Trade History:
+
+.select-acct-head-hist {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-top: 1%;
+    margin-bottom: .5%;
+}
+
+.select-acct-head-hist + .select-n-button-hist{
+    text-align: center;
+}
+
+.search-acct {
+    margin-left: 1.5%;
+}
+
+.render-trd-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-acct-trd-hist {
+    text-align: center;
+}
+
+.render-trd-table, .trd-table-head {
+    border-top: 3px solid rgb(117, 117, 117);
+    border-bottom: 3px solid rgb(117, 117, 117);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    padding-left: 20px;
+    text-align: center;
 }
