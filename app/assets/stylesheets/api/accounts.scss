@@ -78,39 +78,3 @@
 //     // float: left;
 //     background-color: #005f83;
 // }
-
-// account-show styling
-
-.select-acct-head-show {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-top: 1%;
-    margin-bottom: .5%;
-}
-
-h1.select-acct-head-show + .select-n-button-acct-show{
-    text-align: center;
-}
-
-.search-account {
-    margin-left: 1.5%;
-}
-
-.render-pos-table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cash-head-pos, .cash-amt-pos{
-    text-align: center;
-}
-
-.render-pos-table, .pos-table-head {
-    border-top: 3px solid rgb(117, 117, 117);
-    border-bottom: 3px solid rgb(117, 117, 117);
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px;
-    padding-left: 20px;
-    text-align: center;
-}

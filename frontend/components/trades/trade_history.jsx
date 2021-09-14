@@ -101,7 +101,7 @@ class TradeHistory extends React.Component {
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 <Sidebar/>
-                <h1 className="select-acct-head-hist">Please Select an Account</h1>
+                <h1 className="select-acct-head-hist">Trade History</h1>
                 <div className="select-n-button-hist">
                     <select className="select-hist" onChange={this.handleInput('selectedAcct')}>
                         <option> </option>

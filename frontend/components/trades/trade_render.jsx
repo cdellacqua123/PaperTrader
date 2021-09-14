@@ -6,11 +6,11 @@ class TradeRender extends React.Component {
         return (
             <tbody>
                 <tr>
-                    <td className='pos-table-data'>{action}</td>
-                    <td className='pos-table-data'>{ticker}</td>
-                    <td className='pos-table-data'>{price}</td>
-                    <td className='pos-table-data'>{quantity}</td>
-                    <td className='pos-table-data'>{amount}</td>
+                    <td className='pos-table-data-hist'>{action}</td>
+                    <td className='pos-table-data-hist'>{ticker}</td>
+                    <td className='pos-table-data-hist'>{price}</td>
+                    <td className='pos-table-data-hist'>{quantity}</td>
+                    <td className='pos-table-data-hist'>{amount}</td>
                 </tr>
             </tbody>
         )

@@ -64,7 +64,7 @@ class AccountShow extends React.Component {
             let positions = this.state.positions
             return(
                 <div>
-                    <h1 className="cash-head-pos">Cash</h1>
+                    <h1 className="cash-head-pos">Cash:</h1>
                     <h1 className="cash-amt-pos">{positions[0]}</h1>
                     <table className="render-pos-table">
                         <thead>
@@ -88,9 +88,11 @@ class AccountShow extends React.Component {
             let positions = this.state.positions
             return(
                 <div>
-                    <h1 className="cash-head-pos">Cash</h1>
-                    <h1 className="cash-amt-pos">{positions[0]}</h1>
-                    <h1 className="cash-amt-pos">No positions in account</h1>
+                    
+                    <h1 className="cash-head-pos">Cash:</h1>
+                    <h1 className="cash-amt-pos">${positions[0]}</h1>
+                    
+                    <h1 className="no-pos-warning">No positions in account</h1>
                 </div>
             )
         }
@@ -108,10 +110,10 @@ class AccountShow extends React.Component {
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 <Sidebar/>
-                <h1 className="select-acct-head-show">Please Select an Account</h1>
+                <h1 className="select-acct-head-show">View Account Positions</h1>
                 <div className="select-n-button-acct-show">
                 <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
-                    <option> </option>
+                    <option className="acct-show-option"> </option>
                     {accounts.map(account => (
                         <option >{account.account_name}</option>
                     ))}
