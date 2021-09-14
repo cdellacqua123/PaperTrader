@@ -156,7 +156,7 @@ class AccountEdit extends React.Component {
                 <Header/>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
-                {/* <Sidebar/> */}
+                <Sidebar/>
                 <h1 className='edit-acct-header'>Edit An Account</h1>
                 <div className='select-n-button-edit'>
                 <select className="select-acct-edit" onChange={this.handleInput('selectedAcct')}>
