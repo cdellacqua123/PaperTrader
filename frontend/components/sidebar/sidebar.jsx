@@ -60,49 +60,53 @@ const Sidebar = (accounts) => {
                                     <ul>
 
 
-                                    <li className="test">
-                                    <h1 >
-                                        Home
-                                    </h1>
-                                    <Link className='sidebar-links' to={'/users/show'}></Link>
+                                    <li className="sidebar-li">
+                                    {/* <h1 > */}
+                                        
+                                    {/* </h1> */}
+                                    <Link className='sidebar-links' to={'/users/show'}>Home</Link>
                                     </li>
                                     
 
 
-                                    <li className="test">
-                                    <h1>
-                                        Create New Account
-                                    </h1>
-                                    <Link className='sidebar-links' to={'/users/account/create'}></Link>
+                                    <li className="sidebar-li">
+                                    {/* <h1> */}
+                                        
+                                    {/* </h1> */}
+                                    <Link className='sidebar-links' to={'/users/account/create'}>Create New Account</Link>
                                     </li>
                                     
 
+                                    <li className="sidebar-li">
+                                    {/* <h1> */}
+                                        
+                                    {/* </h1> */}
+                                    <Link className='sidebar-links' to={'/users/trades/show'}>Place a Trade</Link>
+                                    </li>
 
-                                    <h1>
-                                        Place a Trade
-                                    </h1>
-                                    <Link className='sidebar-links' to={'/users/trades/show'}></Link>
+
+                                    <li className="sidebar-li">
+                                    {/* <h1> */}
+                                        
+                                    {/* </h1> */}
+                                    <Link className='sidebar-links' to={'/users/accounts/show'}>View Accounts</Link>
+                                    </li>
                                     
 
-
-                                    <h1>
-                                        View Accounts
-                                    </h1>
-                                    <Link className='sidebar-links' to={'/users/accounts/show'}></Link>
+                                    <li className="sidebar-li"> 
+                                    {/* <h1> */}
+                                        
+                                    {/* </h1> */}
+                                    <Link className='sidebar-links' to={'/users/trades/history'}>Trade History</Link>
+                                    </li>
                                     
 
-
-                                    <h1>
-                                        Trade History
-                                    </h1>
-                                    <Link className='sidebar-links' to={'/users/trades/history'}></Link>
-                                    
-
-
-                                    <h1>
-                                        Edit Accounts
-                                    </h1>
-                                    <Link className='sidebar-links' to={'/users/accounts/edit'}></Link>
+                                    <li className="sidebar-li">
+                                    {/* <h1> */}
+                                        
+                                    {/* </h1> */}
+                                    <Link className='sidebar-links' to={'/users/accounts/edit'}>Edit Accounts</Link>
+                                    </li>
                                     </ul>
                                     </div>
                             )}
