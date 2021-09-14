@@ -39,17 +39,26 @@
 }
 
 .create-button {
+    // align-items: center;
+    // // border-radius: 5px;
+    // max-width: 140px;
+    // padding: 10px;
+    // padding-left: 20px;
+    // padding-right: 20px;
+    // border-width: 1px;
+    // cursor: pointer;
+    // margin-left: 35%;
+    // background-color: rgba(48,56,76,255);
+    // color: white;
     align-items: center;
-    // border-radius: 5px;
-    max-width: 140px;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-width: 1px;
+    margin-left: 32%;
+    border: none;
+    font-size: 18px;
+    width: 12rem;
+    padding: 1rem;
+    color: #fff;
     cursor: pointer;
-    margin-left: 35%;
-    background-color: rgba(48,56,76,255);
-    color: white;
+    background-color: #323b55;
 }
 
 
