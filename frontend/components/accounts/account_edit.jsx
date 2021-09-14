@@ -34,6 +34,7 @@ class AccountEdit extends React.Component {
             this.setState({ ['acctToEditName']: account.account_name })
             this.setState({ ['acctToEditBal']: account.balance })
             this.setState({ 'deleteSuccess': false })
+            this.setState({ 'editSuccess': false })
 
         } else {
             this.setState({ 'noAcct': true })
@@ -50,6 +51,7 @@ class AccountEdit extends React.Component {
                 id: this.state.acctToEditId
             })
             // Success on edit render needed
+            this.setState({'editSuccess': true})
         } else if (!parseInt(this.state.acctToEditBal)){
             console.log('Enter a correct Balance')
         } else {
@@ -81,7 +83,17 @@ class AccountEdit extends React.Component {
     deleteSuccessRender() {
         if (this.state && this.state.deleteSuccess) {
             return(
-                <h1>Account successfully deleted</h1>
+                <h1 className='delete-success'>Account successfully deleted</h1>
+            )
+        }
+    }
+
+    editSuccessRender() {
+        if (this.state && this.state.editSuccess) {
+            return (
+                <div className='edit-success-container'>
+                <h1 className='edit-success'>Account successfully updated</h1>
+                </div>
             )
         }
     }
@@ -89,10 +101,14 @@ class AccountEdit extends React.Component {
     deleteCheckRender() {
         if (this.state && this.state.acctToDeleteName) {
             return (
-                <div>
-                    <h1>Are you sure you want to delete account '{this.state.acctToDeleteName}'?</h1>
-                    <button onClick={this.deleteAcct}>Yes</button>
-                    <button onClick={this.deleteCancel}>No</button>
+                <div className='delete-acct-check'>
+                    <h1>Are you sure you want to delete account '{this.state.acctToDeleteName}' ?</h1>
+                    <button className='yes-del-acct' onClick={this.deleteAcct}>
+                        Delete
+                    </button>
+                    <button className='no-del-acct' onClick={this.deleteCancel}>
+                        Cancel
+                    </button>
                 </div>
             )
         }
@@ -152,6 +168,7 @@ class AccountEdit extends React.Component {
                 <button className="search-acct-edit" onClick={this.searchAccount}>
                     Select Account
                 </button>
+                <div>{this.editSuccessRender()}</div>
                 </div>
                 <div>{this.renderEdit()}</div>
                 <div>{this.deleteCheckRender()}</div>
