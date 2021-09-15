@@ -36,9 +36,7 @@ class UsersForm extends React.Component {
         if (!this.props.accounts) {
             return null
         }
-
         let {accounts} = this.props
-        console.log(accounts)
         return(
             <div>
             <Header/>
@@ -47,9 +45,6 @@ class UsersForm extends React.Component {
             <Sidebar accounts={accounts} />
             <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
-            
-            
-            
             <table className="acct-table">
                 <thead>
                     <tr>
@@ -69,7 +64,6 @@ class UsersForm extends React.Component {
                 </table>
             </div>
         )
-        
     }
 }
 export default UsersForm;

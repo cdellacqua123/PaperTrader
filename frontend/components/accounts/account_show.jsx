@@ -102,7 +102,6 @@ class AccountShow extends React.Component {
         if (!this.props.accounts) {
             return null
         }
-        console.log(this.state)
         let {accounts} = this.props
         return(
             <div>

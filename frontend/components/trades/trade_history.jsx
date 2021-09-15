@@ -55,7 +55,6 @@ class TradeHistory extends React.Component {
         }
         else if (this.state && this.state.acctsTrades && this.state.acctsTrades.length > 0) {
             let trades = this.state.acctsTrades
-            console.log(trades)
             return (
                 <div>
                     <table className="render-trd-table">

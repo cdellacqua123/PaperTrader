@@ -3,7 +3,6 @@ import React from 'react';
 class PositionRender extends React.Component {
     render() {
         const { ticker, shares, price } = this.props
-        console.log(this.props)
         if (ticker, shares, price) {
             return (
                 <tbody>

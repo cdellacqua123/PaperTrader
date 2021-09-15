@@ -50,7 +50,6 @@ class AccountEdit extends React.Component {
                 balance: this.state.acctToEditBal,
                 id: this.state.acctToEditId
             })
-            // Success on edit render needed
             this.setState({'editSuccess': true})
         } else if (!parseInt(this.state.acctToEditBal)){
             console.log('Enter a correct Balance')
@@ -156,7 +155,6 @@ class AccountEdit extends React.Component {
             return null
         }
         let {accounts} = this.props
-        console.log(this.state)
         return(
             <div>
                 <Header/>
