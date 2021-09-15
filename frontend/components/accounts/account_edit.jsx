@@ -11,7 +11,7 @@ class AccountEdit extends React.Component {
         this.deleteCheck = this.deleteCheck.bind(this)
         this.deleteCancel = this.deleteCancel.bind(this)
         this.deleteAcct = this.deleteAcct.bind(this)
-        // this.deleteAcct = this.deleteAcct.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
     }
 
     componentDidMount() {
@@ -143,6 +143,12 @@ class AccountEdit extends React.Component {
                 </div>
             )
         }
+    }
+
+    handleLogout(e) {
+        e.preventDefault();
+        this.props.logout(this.state)
+        this.props.history.push('/');
     }
 
     render() {
