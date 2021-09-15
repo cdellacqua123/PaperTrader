@@ -84,7 +84,7 @@ class AccountForm extends React.Component {
                 <Header/>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
-                {/* <Sidebar/> */}
+                <Sidebar/>
                 <div className='new-acct-container'>
                 <h1 className="new-trade-acct-header">Create a Trading Account</h1>
                 <div>{this.badInputRender()}</div>
