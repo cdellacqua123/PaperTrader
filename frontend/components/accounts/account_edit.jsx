@@ -24,6 +24,12 @@ class AccountEdit extends React.Component {
         }
     };
 
+    handleLogout(e) {
+        e.preventDefault();
+        this.props.logout(this.state)
+        this.props.history.push('/');
+    }
+
     searchAccount(e) {
         e.preventDefault();
         if (this.state && this.state.selectedAcct) {
@@ -35,6 +41,8 @@ class AccountEdit extends React.Component {
             this.setState({ ['acctToEditBal']: account.balance })
             this.setState({ 'deleteSuccess': false })
             this.setState({ 'editSuccess': false })
+            this.setState({ 'badName': false })
+            this.setState({ 'badBal': false })
 
         } else {
             this.setState({ 'noAcct': true })
@@ -52,9 +60,13 @@ class AccountEdit extends React.Component {
             })
             this.setState({'editSuccess': true})
         } else if (!parseInt(this.state.acctToEditBal)){
-            console.log('Enter a correct Balance')
+            this.setState({'badBal': true})
+            this.setState({ 'badName': false })
+            this.setState({ 'editSuccess': false })
         } else {
-            console.log('Please make an account name that doesnt match another account name')
+            this.setState({'badName': true})
+            this.setState({ 'badBal': false })
+            this.setState({ 'editSuccess': false })
         }
     }
 
@@ -71,6 +83,9 @@ class AccountEdit extends React.Component {
         this.setState({ 'acctToDeleteName': false })
         this.setState({'deleteSuccess': true})
         this.setState({'acctToEditId': false})
+        this.setState({ 'badBal': false })
+        this.setState({ 'editSuccess': false })
+        this.setState({ 'badName': false })
     }
 
     deleteCancel(e) {
@@ -82,7 +97,7 @@ class AccountEdit extends React.Component {
     deleteSuccessRender() {
         if (this.state && this.state.deleteSuccess) {
             return(
-                <h1 className='delete-success'>Account successfully deleted</h1>
+                <h1 className='delete-success'>Account Deleted</h1>
             )
         }
     }
@@ -91,7 +106,7 @@ class AccountEdit extends React.Component {
         if (this.state && this.state.editSuccess) {
             return (
                 <div className='edit-success-container'>
-                <h1 className='edit-success'>Account successfully updated</h1>
+                <h1 className='edit-success'>Account Update Successful</h1>
                 </div>
             )
         }
@@ -144,10 +159,16 @@ class AccountEdit extends React.Component {
         }
     }
 
-    handleLogout(e) {
-        e.preventDefault();
-        this.props.logout(this.state)
-        this.props.history.push('/');
+    badInputRender() {
+        if (this.state && this.state.badName) {
+            return(<h1 className='edit-acct-name-err'>
+                Please Choose An Account Name That's Different From Your Other Account Names
+                </h1>)
+        } else if (this.state && this.state.badBal) {
+            return (<h1 className='edit-acct-bal-err'>
+                Please Enter A Numeric Value For Balance
+                </h1>)
+        }
     }
 
     render() {
@@ -173,10 +194,11 @@ class AccountEdit extends React.Component {
                     Select Account
                 </button>
                 <div>{this.editSuccessRender()}</div>
+                <div>{this.badInputRender()}</div>
+                <div>{this.deleteSuccessRender()}</div>
                 </div>
                 <div>{this.renderEdit()}</div>
                 <div>{this.deleteCheckRender()}</div>
-                <div>{this.deleteSuccessRender()}</div>
             </div>
         )
     }
