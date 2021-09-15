@@ -65,6 +65,11 @@
     cursor: pointer;
 }
 
+.login-button:hover, .signup-button:hover, .guest-button:hover {
+    background-color: #5d73b3;
+    transition: .5s;
+}
+
 .login-button, .signup-button{
     margin-top: 20px;
 }

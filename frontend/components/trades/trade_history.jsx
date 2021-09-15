@@ -8,6 +8,7 @@ class TradeHistory extends React.Component {
         super(props)
         this.handleInput = this.handleInput.bind(this)
         this.searchAccount = this.searchAccount.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
     };
 
     handleInput(field) {
@@ -54,7 +55,6 @@ class TradeHistory extends React.Component {
         }
         else if (this.state && this.state.acctsTrades && this.state.acctsTrades.length > 0) {
             let trades = this.state.acctsTrades
-            console.log(trades)
             return (
                 <div>
                     <table className="render-trd-table">
@@ -82,13 +82,17 @@ class TradeHistory extends React.Component {
         } else if (this.state && this.state.acctsTrades && this.state.acctsTrades.length === 0) {
             return (
                 <div>
-                    <h1 className="cash-amt-trd">No Trades Have Occured In Account</h1>
+                    <h1 className="cash-amt-trd">No Trades Have Occured In Selected Account</h1>
                 </div>
             )
         }
     }
 
-    
+    handleLogout(e) {
+        e.preventDefault();
+        this.props.logout(this.state)
+        this.props.history.push('/');
+    }
 
     render() {
         if (!this.props.trades) {
@@ -101,7 +105,7 @@ class TradeHistory extends React.Component {
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
                 <Sidebar/>
-                <h1 className="select-acct-head-hist">Please Select an Account</h1>
+                <h1 className="select-acct-head-hist">Trade History</h1>
                 <div className="select-n-button-hist">
                     <select className="select-hist" onChange={this.handleInput('selectedAcct')}>
                         <option> </option>

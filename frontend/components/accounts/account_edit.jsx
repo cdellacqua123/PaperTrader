@@ -11,7 +11,7 @@ class AccountEdit extends React.Component {
         this.deleteCheck = this.deleteCheck.bind(this)
         this.deleteCancel = this.deleteCancel.bind(this)
         this.deleteAcct = this.deleteAcct.bind(this)
-        // this.deleteAcct = this.deleteAcct.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
     }
 
     componentDidMount() {
@@ -34,6 +34,7 @@ class AccountEdit extends React.Component {
             this.setState({ ['acctToEditName']: account.account_name })
             this.setState({ ['acctToEditBal']: account.balance })
             this.setState({ 'deleteSuccess': false })
+            this.setState({ 'editSuccess': false })
 
         } else {
             this.setState({ 'noAcct': true })
@@ -49,7 +50,7 @@ class AccountEdit extends React.Component {
                 balance: this.state.acctToEditBal,
                 id: this.state.acctToEditId
             })
-            // Success on edit render needed
+            this.setState({'editSuccess': true})
         } else if (!parseInt(this.state.acctToEditBal)){
             console.log('Enter a correct Balance')
         } else {
@@ -81,7 +82,17 @@ class AccountEdit extends React.Component {
     deleteSuccessRender() {
         if (this.state && this.state.deleteSuccess) {
             return(
-                <h1>Account successfully deleted</h1>
+                <h1 className='delete-success'>Account successfully deleted</h1>
+            )
+        }
+    }
+
+    editSuccessRender() {
+        if (this.state && this.state.editSuccess) {
+            return (
+                <div className='edit-success-container'>
+                <h1 className='edit-success'>Account successfully updated</h1>
+                </div>
             )
         }
     }
@@ -89,10 +100,14 @@ class AccountEdit extends React.Component {
     deleteCheckRender() {
         if (this.state && this.state.acctToDeleteName) {
             return (
-                <div>
-                    <h1>Are you sure you want to delete account '{this.state.acctToDeleteName}'?</h1>
-                    <button onClick={this.deleteAcct}>Yes</button>
-                    <button onClick={this.deleteCancel}>No</button>
+                <div className='delete-acct-check'>
+                    <h1>Are you sure you want to delete account '{this.state.acctToDeleteName}' ?</h1>
+                    <button className='yes-del-acct' onClick={this.deleteAcct}>
+                        Delete
+                    </button>
+                    <button className='no-del-acct' onClick={this.deleteCancel}>
+                        Cancel
+                    </button>
                 </div>
             )
         }
@@ -101,24 +116,38 @@ class AccountEdit extends React.Component {
     renderEdit() {
         if (this.state && this.state.acctToEditId) {
             return (
-                <div>
+                <div className='edit-acct-container'>
                     <h1>Edit Account Nickname</h1>
                     <input
+                        className='edit-acct-name-input'
                         type='text'
                         value={this.state.acctToEditName}
                         onChange={this.handleInput('acctToEditName')}
                     />
-                    <h1>Edit Account Balance</h1>
+                    <h1 className='edit-bal-h1'>Edit Account Balance</h1>
                     <input
+                        className='edit-acct-bal-input'
                         type="text"
                         value={this.state.acctToEditBal}
                         onChange={this.handleInput('acctToEditBal')}
                     />
-                    <button onClick={this.changeAccount}>Submit Changes</button>
-                    <button onClick={this.deleteCheck}>Delete Account</button>
+                    <br></br>
+                    <button onClick={this.changeAccount} className='submit-edit'>
+                        Submit Changes
+                    </button>
+                    <br></br>
+                    <button onClick={this.deleteCheck} className='delete-acct'>
+                        Delete Account
+                    </button>
                 </div>
             )
         }
+    }
+
+    handleLogout(e) {
+        e.preventDefault();
+        this.props.logout(this.state)
+        this.props.history.push('/');
     }
 
     render() {
@@ -126,14 +155,15 @@ class AccountEdit extends React.Component {
             return null
         }
         let {accounts} = this.props
-        console.log(this.state)
         return(
             <div>
                 <Header/>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
-                {/* <Sidebar/> */}
-                <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
+                <Sidebar/>
+                <h1 className='edit-acct-header'>Edit An Account</h1>
+                <div className='select-n-button-edit'>
+                <select className="select-acct-edit" onChange={this.handleInput('selectedAcct')}>
                     <option> </option>
                     {accounts.map(account => (
                         <option >{account.account_name}</option>
@@ -142,6 +172,8 @@ class AccountEdit extends React.Component {
                 <button className="search-acct-edit" onClick={this.searchAccount}>
                     Select Account
                 </button>
+                <div>{this.editSuccessRender()}</div>
+                </div>
                 <div>{this.renderEdit()}</div>
                 <div>{this.deleteCheckRender()}</div>
                 <div>{this.deleteSuccessRender()}</div>

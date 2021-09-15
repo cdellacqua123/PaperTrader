@@ -35,21 +35,32 @@
     height: 44px;
     border: 1px solid #d4d4d4;
     padding: .25rem .75rem;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
     // margin-left: 40%;
 }
 
 .create-button {
+    // align-items: center;
+    // // border-radius: 5px;
+    // max-width: 140px;
+    // padding: 10px;
+    // padding-left: 20px;
+    // padding-right: 20px;
+    // border-width: 1px;
+    // cursor: pointer;
+    // margin-left: 35%;
+    // background-color: rgba(48,56,76,255);
+    // color: white;
     align-items: center;
-    // border-radius: 5px;
-    max-width: 140px;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-width: 1px;
+    margin-left: 32%;
+    border: none;
+    font-size: 18px;
+    width: 12rem;
+    padding: 1rem;
+    color: #fff;
     cursor: pointer;
-    margin-left: 35%;
-    background-color: rgba(48,56,76,255);
-    color: white;
+    background-color: #323b55;
 }
 
 
@@ -78,39 +89,3 @@
 //     // float: left;
 //     background-color: #005f83;
 // }
-
-// account-show styling
-
-.select-acct-head-show {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-top: 1%;
-    margin-bottom: .5%;
-}
-
-h1.select-acct-head-show + .select-n-button-acct-show{
-    text-align: center;
-}
-
-.search-account {
-    margin-left: 1.5%;
-}
-
-.render-pos-table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cash-head-pos, .cash-amt-pos{
-    text-align: center;
-}
-
-.render-pos-table, .pos-table-head {
-    border-top: 3px solid rgb(117, 117, 117);
-    border-bottom: 3px solid rgb(117, 117, 117);
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px;
-    padding-left: 20px;
-    text-align: center;
-}

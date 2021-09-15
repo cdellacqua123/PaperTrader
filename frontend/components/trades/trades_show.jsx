@@ -13,9 +13,9 @@ class TradesShow extends React.Component {
         this.executeTrade = this.executeTrade.bind(this);
     };
 
-    cancel = () => {
-        this.props.history.push("/users/show");
-    };
+    // cancel = () => {
+    //     this.props.history.push("/users/show");
+    // };
 
     handleLogout(e) {
         e.preventDefault();
@@ -144,6 +144,7 @@ class TradesShow extends React.Component {
                 <Header/>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
+                <Sidebar/>
                 <div id="chart"></div>
                 <h1 className="symbol">Symbol</h1>
                 <br></br>
@@ -182,9 +183,9 @@ class TradesShow extends React.Component {
                     {/* <div>{this.checkErrors()}</div> */}
                     <div>{this.tradeSuccess()}</div>
                 <br></br>
-                <button className="back-button" onClick={this.cancel}>
+                {/* <button className="back-button" onClick={this.cancel}>
                     Back to Accounts page
-                </button>
+                </button> */}
             </div>
         )
     }
