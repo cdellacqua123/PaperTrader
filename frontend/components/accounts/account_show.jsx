@@ -57,7 +57,7 @@ class AccountShow extends React.Component {
     renderPositions() {
         if (this.state && this.state.noAcct) {
             return (
-                <h1 className="cash-amt-pos">No account selected</h1>
+                <h1 className="acct-view-no-acct">No account selected</h1>
             )
         }
         else if (this.state && this.state.positions && this.state.positions.length > 1) {
