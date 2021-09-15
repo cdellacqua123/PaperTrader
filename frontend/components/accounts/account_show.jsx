@@ -92,7 +92,7 @@ class AccountShow extends React.Component {
                     <h1 className="cash-head-pos">Cash:</h1>
                     <h1 className="cash-amt-pos">${positions[0]}</h1>
                     
-                    <h1 className="no-pos-warning">No positions in account</h1>
+                    <h1 className="no-pos-warning">No Positions In Selected Account</h1>
                 </div>
             )
         }

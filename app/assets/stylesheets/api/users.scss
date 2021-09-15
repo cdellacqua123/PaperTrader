@@ -27,6 +27,11 @@
     cursor: pointer;
 }
 
+.logout:hover {
+    background-color: #bd1d33;
+    transition: .5s;
+}
+
 .table-headers {
     font-size: 17px;
     font-weight: bold;

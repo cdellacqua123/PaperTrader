@@ -82,7 +82,7 @@ class TradeHistory extends React.Component {
         } else if (this.state && this.state.acctsTrades && this.state.acctsTrades.length === 0) {
             return (
                 <div>
-                    <h1 className="cash-amt-trd">No Trades Have Occured In Account</h1>
+                    <h1 className="cash-amt-trd">No Trades Have Occured In Selected Account</h1>
                 </div>
             )
         }
