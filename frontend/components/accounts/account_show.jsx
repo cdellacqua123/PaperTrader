@@ -65,7 +65,7 @@ class AccountShow extends React.Component {
             return(
                 <div>
                     <h1 className="cash-head-pos">Cash:</h1>
-                    <h1 className="cash-amt-pos">{positions[0]}</h1>
+                    <h1 className="cash-amt-pos">${positions[0]}</h1>
                     <table className="render-pos-table">
                         <thead>
                             <tr>
