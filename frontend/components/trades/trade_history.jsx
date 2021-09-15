@@ -8,6 +8,7 @@ class TradeHistory extends React.Component {
         super(props)
         this.handleInput = this.handleInput.bind(this)
         this.searchAccount = this.searchAccount.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
     };
 
     handleInput(field) {
@@ -88,7 +89,11 @@ class TradeHistory extends React.Component {
         }
     }
 
-    
+    handleLogout(e) {
+        e.preventDefault();
+        this.props.logout(this.state)
+        this.props.history.push('/');
+    }
 
     render() {
         if (!this.props.trades) {
