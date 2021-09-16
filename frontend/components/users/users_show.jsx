@@ -2,6 +2,7 @@ import React from 'react';
 import AccountIndexItem from './account_index_item';
 import Sidebar from '../sidebar/sidebar';
 import Header from '../header/header';
+import Footer from '../footer/footer';
 
 class UsersForm extends React.Component {
     constructor(props) {
@@ -21,7 +22,8 @@ class UsersForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAcctsForUser(this.props.currentUser.id)
+        this.props.fetchAcctsForUser(this.props.currentUser.id);
+            // < Footer />
     };
 
     homePage = () => {
@@ -62,6 +64,7 @@ class UsersForm extends React.Component {
                     ))
                 }
                 </table>
+                <Footer/>
             </div>
         )
     }
