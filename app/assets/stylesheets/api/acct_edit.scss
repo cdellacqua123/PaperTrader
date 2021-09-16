@@ -112,9 +112,30 @@
 
 .edit-success-container {
     margin-bottom: 10px;
-    border: 1px solid gray;
+    border: 1px solid #029800;
     display: inline-block;
     padding: 10px;
     border-radius: 13px;
     background-color: #e0ffe0;
+    color: green;
+}
+
+.edit-acct-name-err, .edit-acct-bal-err {
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 13px;
+    background-color: #ffcbcb;
+    max-width: 300px;
+    color: #ff1c1c;
+}
+
+.delete-success {
+    padding: 5px;
+    border-radius: 13px;
+    background-color: #ffcbcb;
+    max-width: 238px;
+    color: #ff1c1c;
+    margin-left: 42%;
+    border: 1px solid #ff3535;
 }

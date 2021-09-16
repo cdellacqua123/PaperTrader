@@ -9,6 +9,8 @@
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .new-acct-container {
@@ -89,3 +91,42 @@
 //     // float: left;
 //     background-color: #005f83;
 // }
+
+.create-acct-name-err {
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 13px;
+    background-color: #ffcbcb;
+    max-width: 300px;
+    color: #ff1c1c;
+    text-align: center;
+    margin-left: 9%;
+    margin-top: 10px;
+}
+
+.create-acct-no-val {
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 13px;
+    background-color: #ffcbcb;
+    max-width: 300px;
+    color: #ff1c1c;
+    text-align: center;
+    margin-left: 20%;
+    margin-top: 10px;
+}
+
+.create-acct-bal-err {
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 13px;
+    background-color: #ffcbcb;
+    max-width: 300px;
+    color: #ff1c1c;
+    text-align: center;
+    margin-left: 13%;
+    margin-top: 10px;
+}
