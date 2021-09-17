@@ -18,22 +18,29 @@
     border-radius: 2px;
     border-color: #bdbbbb;
     margin-left: 250px;
+    width: 7%;
+    /* box-shadow: none; */
+    height: 23px;
+    border: 1px solid #d4d4d4;
+    padding: .25rem .75rem;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
 }
 
 .search-ticker{
-    border-radius: 5px;
     padding: 5px;
     padding-left: 5px;
     padding-right: 5px;
     border-width: 1px;
     cursor: pointer;
-    background-image: linear-gradient(#fbfbfb, #cac9c9);
     margin-bottom: 20px;
     margin-left: 5px;
+    height: 31px;
+    background-color: #e4e4e4;
 }
 
 .search-ticker:hover {
-    background-image: linear-gradient(#d1d1d1,#999999);
+    background-color: #bfbebe;
 }
 
 .select-acct-head {
@@ -53,10 +60,21 @@
 }
 
 .quantity-input {
+    
     border-radius: 2px;
-    border-color: #bdbbbb;
+    /* border-color: #bdbbbb; */
     max-width: 70px;
     margin-right: 50px;
+    border-radius: 2px;
+    border-color: #bdbbbb;
+    /* margin-left: 250px; */
+    width: 7%;
+    /* box-shadow: none; */
+    height: 23px;
+    border: 1px solid #d4d4d4;
+    padding: .25rem .75rem;
+    font-size: 18px;
+    font-family: 'Playfair Display', serif;
 }
 
 .place-trade-button {
