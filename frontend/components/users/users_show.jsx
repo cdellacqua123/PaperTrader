@@ -26,6 +26,10 @@ class UsersForm extends React.Component {
             // < Footer />
     };
 
+    componentDidUpdate() {
+        <Footer/>
+    }
+
     homePage = () => {
         this.props.history.push("/");
     }
@@ -64,7 +68,7 @@ class UsersForm extends React.Component {
                     ))
                 }
                 </table>
-                <Footer/>
+                {/* <Footer/> */}
             </div>
         )
     }
