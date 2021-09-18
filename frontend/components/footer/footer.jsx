@@ -58,9 +58,21 @@ class Footer extends React.Component {
         // if (stock_info) {
         //     console.log(stock_info)
         return ( 
-            <div>
-                <h1 className='test'>Here's a test</h1>
-                {this.renderStocks()}
+            <div className='pt-footer'>
+                {/* <h1 className='test'>Here's a test</h1>
+                {this.renderStocks()} */}
+                <a href="https://github.com/cdellacqua123">
+                    <img src="images/GitHub.png" width="15" height="15"/>
+                </a>
+                <a href="www.linkedin.com/in/christopher-dell-acqua-b6765995">
+                    <img src="images/Linkedin.png" width="15" height="15"/>
+                </a>
+                {/* <a href="personal site">
+                    <img src="images/globe.png" width="15" height="15" />
+                </a> */}
+                <a href="https://angel.co/u/christopher-dell-acqua">
+                    <img src="images/angel_list.png" width="15" height="15" />
+                </a>
             </div>
         )
         // }

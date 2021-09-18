@@ -2,6 +2,7 @@ import React from 'react';
 import PositionRender from './position_render';
 import Sidebar from '../sidebar/sidebar';
 import Header from '../header/header';
+import Footer from '../footer/footer';
 
 class AccountShow extends React.Component {
     constructor(props) {
@@ -122,6 +123,7 @@ class AccountShow extends React.Component {
                 </button>
                 </div>
                 <div>{this.renderPositions()}</div>
+                {/* <Footer/> */}
             </div>
         )
     }
