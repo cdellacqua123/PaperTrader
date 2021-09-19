@@ -80,3 +80,21 @@
 .trade-redirect:hover, .create-acct:hover {
     background-image: linear-gradient(#d1d1d1,#999999);
 }
+
+.news-container {
+    margin-left: 33%;
+    border: 1px solid gray;
+    max-width: 600px;
+}
+
+.article-pic {
+    max-width: 150px;
+}
+
+.article-link {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
