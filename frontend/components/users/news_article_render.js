@@ -3,8 +3,8 @@ import React from "react";
 class NewsArticleItem extends React.Component {
     render() {
         const {datetime, headline, image, source, summary, url} = this.props
-        const date = new Date(datetime)
-        const new_datetime = date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+date.getSeconds()
+        const date = new Date(datetime * 1000)
+        const new_datetime = (date.getMonth() + 1) + '/' + date.getDate()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+date.getSeconds()
         return(
             <div className='ind-article'>
                 <a href={url} className='article-link'></a>

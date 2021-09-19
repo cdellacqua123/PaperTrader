@@ -39,7 +39,6 @@ class UsersForm extends React.Component {
         if (!this.props.accounts || !this.props.news) {
             return null
         }
-        console.log(this.props)
         let {accounts, news} = this.props
         return(
             <div>
@@ -67,7 +66,7 @@ class UsersForm extends React.Component {
                 }
                 </table>
                 <div className='news-container'>
-                    <h1>Market News</h1>
+                    <h1 className='market-news'>Market News</h1>
                     {news.map(news_article => (
                         <NewsArticleItem 
                         datetime = {news_article.datetime}
