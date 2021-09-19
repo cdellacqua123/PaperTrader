@@ -91,10 +91,29 @@
     max-width: 150px;
 }
 
-.article-link {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+// .article-link {
+//     bottom: 0;
+//     left: 0;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+// }
+
+.ind-article {
+    border-bottom: 1px solid gray;
 }
+
+.article-info-n-pic, .article-header {
+    display: flex;
+}
+
+// .article-link {
+//     max-width: 597px;
+//     max-height: 69%;
+//     display: block;
+//     height: 100%;
+//     position: absolute;
+//     background-color: transparent;
+//     width: 100%;
+//     border: dashed;
+// }
