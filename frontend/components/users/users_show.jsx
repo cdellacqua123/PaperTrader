@@ -2,6 +2,8 @@ import React from 'react';
 import AccountIndexItem from './account_index_item';
 import Sidebar from '../sidebar/sidebar';
 import Header from '../header/header';
+import Footer from '../footer/footer';
+import NewsArticleItem from './news_article_render';
 
 class UsersForm extends React.Component {
     constructor(props) {
@@ -21,7 +23,8 @@ class UsersForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAcctsForUser(this.props.currentUser.id)
+        this.props.fetchAcctsForUser(this.props.currentUser.id);
+        this.props.fetchNews();
     };
 
     homePage = () => {
@@ -33,16 +36,16 @@ class UsersForm extends React.Component {
     }
 
     render() {
-        if (!this.props.accounts) {
+        if (!this.props.accounts || !this.props.news) {
             return null
         }
-        let {accounts} = this.props
+        let {accounts, news} = this.props
         return(
             <div>
             <Header/>
             <button className='logout' onClick={this.handleLogout}>Logout
             </button>
-            <Sidebar accounts={accounts} />
+            <Sidebar/>
             <h2 className='welcome'>Welcome, {this.props.currentUser.username}!</h2>
             <br></br>
             <table className="acct-table">
@@ -62,6 +65,19 @@ class UsersForm extends React.Component {
                     ))
                 }
                 </table>
+                <div className='news-container'>
+                    <h1 className='market-news'>Market News</h1>
+                    {news.map(news_article => (
+                        <NewsArticleItem 
+                        datetime = {news_article.datetime}
+                        headline = {news_article.headline}
+                        image = {news_article.image}
+                        source = {news_article.source}
+                        summary = {news_article.summary}
+                        url = {news_article.url}
+                        />
+                    ))}
+                </div>
             </div>
         )
     }
