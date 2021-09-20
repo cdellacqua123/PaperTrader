@@ -7,19 +7,20 @@ class NewsArticleItem extends React.Component {
         const new_datetime = (date.getMonth() + 1) + '/' + date.getDate()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+date.getSeconds()
         return(
             <div className='ind-article'>
-                <a href={url} className='article-link'></a>
+                <a href={url} className='article-link'>
                 {/* <h1>{url}</h1> */}
                 <div className='article-header'>
-                    <h1>{source}</h1>
-                    <h1>{new_datetime}</h1>
+                    <h1 className='article-source'>{source}</h1>
+                    <h1 className='article-date'>{new_datetime}</h1>
                 </div>
                 <div className='article-info-n-pic'>
                     <div className='article-headline-n-summary'>
-                        <h1>{headline}</h1>
-                        <h1>{summary}</h1>
+                        <h1 className='article-headline'>{headline}</h1>
+                        <p className='article-summary'>{summary}</p>
                     </div>
                     <img src={image} className='article-pic'></img>
                 </div>
+                </a>
             </div>
         )
     }
