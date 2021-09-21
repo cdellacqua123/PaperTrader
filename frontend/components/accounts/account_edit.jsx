@@ -200,7 +200,7 @@ class AccountEdit extends React.Component {
                 </div>
                 <div>{this.renderEdit()}</div>
                 <div>{this.deleteCheckRender()}</div>
-                <Footer/>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }

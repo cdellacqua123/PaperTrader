@@ -78,7 +78,7 @@ class UsersForm extends React.Component {
                         />
                     ))}
                 </div>
-                <Footer/>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }

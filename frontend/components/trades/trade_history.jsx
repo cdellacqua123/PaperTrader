@@ -119,7 +119,7 @@ class TradeHistory extends React.Component {
                     </button>
                 </div>
                 <div>{this.renderTrades()}</div>
-                <Footer/>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }

@@ -108,7 +108,7 @@ class AccountForm extends React.Component {
                 {/* <br></br> */}
                 </form>
                 </div>
-                <Footer/>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }
