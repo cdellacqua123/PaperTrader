@@ -26,8 +26,8 @@ class AccountShow extends React.Component {
                         this.props.findPositions(account.id);
                     }
                 }
-                )
             )
+        )
     };
 
     handleInput(field) {
@@ -89,10 +89,8 @@ class AccountShow extends React.Component {
             let positions = this.state.positions
             return(
                 <div>
-                    
                     <h1 className="cash-head-pos">Cash:</h1>
                     <h1 className="cash-amt-pos">${positions[0]}</h1>
-                    
                     <h1 className="no-pos-warning">No Positions In Selected Account</h1>
                 </div>
             )
@@ -103,7 +101,6 @@ class AccountShow extends React.Component {
         if (!this.props.accounts) {
             return null
         }
-        // console.log(this.props)
         let {accounts} = this.props
         return(
             <div>
