@@ -37,13 +37,32 @@ class Footer extends React.Component {
     renderQuote() {
         if (this.state && this.state.quickQuote) {
             let {change, close, volume} = this.state
-            return(
-                <div className="footer-quotes">
-                    <h1 className='footer-h1'>Last: {close}</h1>
-                    <h1 className='footer-h1'>Change: {change}</h1>
-                    <h1 className='footer-h1'>Volume: {volume}</h1>
-                </div>
-            )
+            if (change > 0) {
+                return (
+                    <div className="footer-quotes">
+                        <h1 className='footer-h1'>Last: ${close}</h1>
+                        <h1 className='footer-h1'>Change: <h1 className='footer-pos-change'>+${change}</h1></h1>
+                        <h1 className='footer-h1'>Volume: {volume}</h1>
+                    </div>
+                )
+            } else if (change < 0) {
+                change = change * -1
+                return (
+                    <div className="footer-quotes">
+                        <h1 className='footer-h1'>Last: ${close}</h1>
+                        <h1 className='footer-h1'>Change: <h1 className='footer-neg-change'>-${change}</h1></h1>
+                        <h1 className='footer-h1'>Volume: {volume}</h1>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="footer-quotes">
+                        <h1 className='footer-h1'>Last: ${close}</h1>
+                        <h1 className='footer-no-change'>Change: ${change}</h1>
+                        <h1 className='footer-h1'>Volume: {volume}</h1>
+                    </div>
+                )
+            }
         }
     }
 
@@ -51,13 +70,16 @@ class Footer extends React.Component {
         console.log(this.props)
         return ( 
             <div className='pt-footer'>
+                <div className='footer-button-n-input'>
                     <input
                     type='text'
                     onChange={this.handleInput('ticker')}
+                    className='footer-input'
                     />
                     <button onClick={this.searchStock} className="footer-button">
                         Get Quote
                     </button>
+                </div>
                 {this.renderQuote()}
                 <div className='links'>
                 <a href="https://github.com/cdellacqua123">

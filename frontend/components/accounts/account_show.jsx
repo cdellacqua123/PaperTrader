@@ -110,7 +110,7 @@ class AccountShow extends React.Component {
                 <Header/>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
-                {/* <Sidebar/> */}
+                <Sidebar/>
                 <h1 className="select-acct-head-show">View Account Positions</h1>
                 <div className="select-n-button-acct-show">
                 <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
