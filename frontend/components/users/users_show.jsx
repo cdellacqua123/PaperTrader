@@ -5,7 +5,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import NewsArticleItem from './news_article_render';
 
-class UsersForm extends React.Component {
+class UsersShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleLogout = this.handleLogout.bind(this);
@@ -83,4 +83,4 @@ class UsersForm extends React.Component {
         )
     }
 }
-export default UsersForm;
+export default UsersShow;
