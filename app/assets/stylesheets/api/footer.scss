@@ -72,6 +72,11 @@
     border-radius: 4px;
 }
 
+.footer-button:hover {
+    background-color: #2b77c3;
+    transition: .5s;
+}
+
 .footer-button-n-input {
     border-right: 1px solid gray;
     margin-top: -2px;
