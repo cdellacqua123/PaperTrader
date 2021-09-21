@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../sidebar/sidebar";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 class AccountEdit extends React.Component {
     constructor(props) {
@@ -199,6 +200,7 @@ class AccountEdit extends React.Component {
                 </div>
                 <div>{this.renderEdit()}</div>
                 <div>{this.deleteCheckRender()}</div>
+                <Footer/>
             </div>
         )
     }
