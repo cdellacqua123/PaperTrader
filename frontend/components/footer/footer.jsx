@@ -1,78 +1,78 @@
 import React from "react";
-import getFooterStocks from "./footer_api_fetch";
+// import getFooterStocks from "./footer_api_fetch";
 
 class Footer extends React.Component {
 
-    // constructor(props) {
-    //     super(props)
-    //     this.setState({ 'AAPL': []})
-    //     this.setState({ 'AMZN': [] })
-    //     this.setState({ 'MSFT': [] })
-    //     this.setState({ 'TSLA': [] })
-    // }
-
-    getStocks() {
-        // let stocks = ['AAPL', 'AMZN', 'MSFT', 'TSLA']
-        // const stock_info = {}
-        // stocks.forEach(ticker => {
-        //     stock_info[ticker] = getFooterStocks(ticker)
-        // }).then(result => console.log(result))
-        getFooterStocks('AAPL').then(result => 
-            // <div>
-            // <h1>HELLO</h1>
-            // <h1>
-            //     {result.ticker}
-            //     {result.last}
-            //     {result.change}
-            // </h1>
-            // </div>
-            {return (
-            // <h1 className="test">
-            //     {/* {result.ticker} */}
-            //     Hello
-            // </h1>
-            this.renderStocks(result)
-            )}
-            )
+    constructor(props) {
+        super(props)
+        this.searchStock = this.searchStock.bind(this);
     }
 
-    renderStocks(stock) {
-        console.log(stock)
-        if (stock) {
-            console.log(stock.ticker)
-            return (
-                <h1 className="test">
-                    {stock.ticker}
-                </h1>
+    handleInput(field) {
+        return (e) => {
+            this.setState({[field]: e.target.value})
+        }
+    }
+
+    searchStock(e) {
+        e.preventDefault();
+        let ticker = this.state['ticker']
+        if (ticker){
+            this.props.getQuote(ticker)
+                .then(api_res => this.cleanData(api_res))
+        }
+    }
+
+    cleanData(api_res) {
+        let keys = Object.keys(api_res.quote['Time Series (Daily)'])
+        let today = api_res.quote['Time Series (Daily)'][keys[0]]
+        let tomorrow = api_res.quote['Time Series (Daily)'][keys[1]]
+        let change = (today['4. close'] - tomorrow['4. close']).toFixed(2)
+        this.setState({['change']: change})
+        this.setState({ ['close']: parseFloat(today['4. close']).toFixed(2)})
+        this.setState({ ['volume']: today['5. volume']})
+        this.setState({['quickQuote']: true})
+    }
+
+    renderQuote() {
+        if (this.state && this.state.quickQuote) {
+            let {change, close, volume} = this.state
+            return(
+                <div className="footer-quotes">
+                    <h1 className='footer-h1'>Last: {close}</h1>
+                    <h1 className='footer-h1'>Change: {change}</h1>
+                    <h1 className='footer-h1'>Volume: {volume}</h1>
+                </div>
             )
         }
     }
 
-    componentDidMount() {
-        this.getStocks()
-    }
-
     render() {
-        // this.getStocks()
-        // let stock_info = this.getStocks()
-        // if (stock_info) {
-        //     console.log(stock_info)
+        console.log(this.props)
         return ( 
             <div className='pt-footer'>
-                {/* <h1 className='test'>Here's a test</h1>
-                {this.renderStocks()} */}
+                    <input
+                    type='text'
+                    onChange={this.handleInput('ticker')}
+                    />
+                    <button onClick={this.searchStock} className="footer-button">
+                        Get Quote
+                    </button>
+                {this.renderQuote()}
+                <div className='links'>
                 <a href="https://github.com/cdellacqua123">
-                    <img src="images/GitHub.png" width="15" height="15"/>
+                    <img src="images/GitHub.png" className='footer-image'/>
                 </a>
                 <a href="www.linkedin.com/in/christopher-dell-acqua-b6765995">
-                    <img src="images/Linkedin.png" width="15" height="15"/>
+                    <img src="images/Linkedin.png" className='footer-image'/>
                 </a>
-                {/* <a href="personal site">
-                    <img src="images/globe.png" width="15" height="15" />
-                </a> */}
+                <a href="personal site">
+                    <img src="images/globe.png" className='footer-image' />
+                </a>
                 <a href="https://angel.co/u/christopher-dell-acqua">
-                    <img src="images/angel_list.png" width="15" height="15" />
+                    <img src="images/angel_list.png" className='footer-image' />
                 </a>
+                </div>
             </div>
         )
         // }

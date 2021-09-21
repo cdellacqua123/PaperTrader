@@ -103,13 +103,14 @@ class AccountShow extends React.Component {
         if (!this.props.accounts) {
             return null
         }
+        // console.log(this.props)
         let {accounts} = this.props
         return(
             <div>
                 <Header/>
                 <button className='logout' onClick={this.handleLogout}>Logout
                 </button>
-                <Sidebar/>
+                {/* <Sidebar/> */}
                 <h1 className="select-acct-head-show">View Account Positions</h1>
                 <div className="select-n-button-acct-show">
                 <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
@@ -123,7 +124,7 @@ class AccountShow extends React.Component {
                 </button>
                 </div>
                 <div>{this.renderPositions()}</div>
-                {/* <Footer/> */}
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }
