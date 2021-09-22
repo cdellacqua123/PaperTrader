@@ -58,6 +58,7 @@ class UsersShow extends React.Component {
                 </thead>
                 {accounts.map(account => (
                         <AccountIndexItem
+                        key={account.id}
                         account_name = {account.account_name}
                         balance={account.balance}
                         equities={account.equities}
@@ -68,7 +69,8 @@ class UsersShow extends React.Component {
                 <div className='news-container'>
                     <h1 className='market-news'>Market News</h1>
                     {news.map(news_article => (
-                        <NewsArticleItem 
+                        <NewsArticleItem
+                        key={news_article.id} 
                         datetime = {news_article.datetime}
                         headline = {news_article.headline}
                         image = {news_article.image}

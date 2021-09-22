@@ -177,6 +177,7 @@ class AccountEdit extends React.Component {
             return null
         }
         let {accounts} = this.props
+        console.log(accounts)
         return(
             <div>
                 <Header/>
@@ -188,7 +189,7 @@ class AccountEdit extends React.Component {
                 <select className="select-acct-edit" onChange={this.handleInput('selectedAcct')}>
                     <option> </option>
                     {accounts.map(account => (
-                        <option >{account.account_name}</option>
+                        <option key={account.id}>{account.account_name}</option>
                     ))}
                 </select>
                 <button className="search-acct-edit" onClick={this.searchAccount}>

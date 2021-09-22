@@ -111,7 +111,7 @@ class TradeHistory extends React.Component {
                     <select className="select-hist" onChange={this.handleInput('selectedAcct')}>
                         <option> </option>
                         {accounts.map(account => (
-                            <option >{account.account_name}</option>
+                            <option key={account.id}>{account.account_name}</option>
                         ))}
                     </select>
                     <button className="search-acct" onClick={this.searchAccount}>

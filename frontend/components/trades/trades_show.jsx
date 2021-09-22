@@ -13,10 +13,6 @@ class TradesShow extends React.Component {
         this.executeTrade = this.executeTrade.bind(this);
     };
 
-    // cancel = () => {
-    //     this.props.history.push("/users/show");
-    // };
-
     handleLogout(e) {
         e.preventDefault();
         this.props.logout(this.state);
@@ -162,7 +158,7 @@ class TradesShow extends React.Component {
                     <select className="select-acct" onChange={this.handleInput('account')}>
                         <option> </option>
                         {accounts.map(account => (
-                            <option >{account.account_name}</option>
+                            <option key={account.id}>{account.account_name}</option>
                         ))}
                     </select>
                     <label className="select-action-head">Select Action</label>

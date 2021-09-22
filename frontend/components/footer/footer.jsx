@@ -67,7 +67,6 @@ class Footer extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return ( 
             <div className='pt-footer'>
                 <div className='footer-button-n-input'>
