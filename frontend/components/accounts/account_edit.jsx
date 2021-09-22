@@ -177,7 +177,6 @@ class AccountEdit extends React.Component {
             return null
         }
         let {accounts} = this.props
-        console.log(accounts)
         return(
             <div>
                 <Header/>
