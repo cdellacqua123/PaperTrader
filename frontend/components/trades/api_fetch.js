@@ -4,17 +4,19 @@ import 'regenerator-runtime/runtime';
 // import finnhub from '../../../node_modules/finnhub/dist/index'
 
 export default async function getDailyInfo(ticker) {
-    // let key = 'c49cf6iad3ieskgqrvo0'
+    // let key = ''
     // const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-    // api_key.apiKey = "c49cf6iad3ieskgqrvo0" // Replace this
+    // api_key.apiKey = "" // Replace this
     // const finnhubClient = new finnhub.DefaultApi()
 
     // // Stock candles
     // finnhubClient.stockCandles("AAPL", "D", 1590988249, 1591852249, {}, (error, data, response) => {
     //     console.log(data)
     // });
+
+    const key = window.alphavantageAPIKey
     
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=QYD67QW2GZO16DQF`;
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=${key}`;
     let pull = axios.get(url)
         .then((res) => {
             if (!res) {
