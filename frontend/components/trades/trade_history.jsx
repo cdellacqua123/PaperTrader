@@ -2,6 +2,7 @@ import React from 'react';
 import TradeRender from './trade_render';
 import Sidebar from '../sidebar/sidebar';
 import Header from '../header/header';
+import Footer from '../footer/footer';
 
 class TradeHistory extends React.Component {
     constructor(props) {
@@ -110,7 +111,7 @@ class TradeHistory extends React.Component {
                     <select className="select-hist" onChange={this.handleInput('selectedAcct')}>
                         <option> </option>
                         {accounts.map(account => (
-                            <option >{account.account_name}</option>
+                            <option key={account.id}>{account.account_name}</option>
                         ))}
                     </select>
                     <button className="search-acct" onClick={this.searchAccount}>
@@ -118,6 +119,7 @@ class TradeHistory extends React.Component {
                     </button>
                 </div>
                 <div>{this.renderTrades()}</div>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }

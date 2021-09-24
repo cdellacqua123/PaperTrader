@@ -26,8 +26,8 @@ class AccountShow extends React.Component {
                         this.props.findPositions(account.id);
                     }
                 }
-                )
             )
+        )
     };
 
     handleInput(field) {
@@ -45,7 +45,7 @@ class AccountShow extends React.Component {
             positions.push(account.balance)
             this.props.positions.forEach(position => {
                 if (position.acct_id === account.id) {
-                    positions.push([position.symbol, position.shares, position.price])
+                    positions.push(position)
                 }
             })
             this.setState({'noAcct': false})
@@ -63,10 +63,12 @@ class AccountShow extends React.Component {
         }
         else if (this.state && this.state.positions && this.state.positions.length > 1) {
             let positions = this.state.positions
+            let balance = positions[0]
+            positions = positions.slice(1)
             return(
                 <div>
                     <h1 className="cash-head-pos">Cash:</h1>
-                    <h1 className="cash-amt-pos">${positions[0]}</h1>
+                    <h1 className="cash-amt-pos">${balance}</h1>
                     <table className="render-pos-table">
                         <thead>
                             <tr>
@@ -77,22 +79,21 @@ class AccountShow extends React.Component {
                         </thead>
                         {positions.map(position =>
                             <PositionRender
-                                ticker={position[0]}
-                                shares={position[1]}
-                                price={position[2]}
+                                key={position.id}
+                                ticker={position.symbol}
+                                shares={position.shares}
+                                price={position.price}
                             />
                         )}
                     </table>
                 </div>
             )
         } else if (this.state && this.state.positions && this.state.positions.length === 1){
-            let positions = this.state.positions
+            let balance = this.state.positions[0]
             return(
                 <div>
-                    
                     <h1 className="cash-head-pos">Cash:</h1>
-                    <h1 className="cash-amt-pos">${positions[0]}</h1>
-                    
+                    <h1 className="cash-amt-pos">${balance}</h1>
                     <h1 className="no-pos-warning">No Positions In Selected Account</h1>
                 </div>
             )
@@ -115,7 +116,7 @@ class AccountShow extends React.Component {
                 <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
                     <option className="acct-show-option"> </option>
                     {accounts.map(account => (
-                        <option >{account.account_name}</option>
+                        <option key={account.id}>{account.account_name}</option>
                     ))}
                 </select>
                 <button className="search-account" onClick={this.searchAccount}>
@@ -123,7 +124,7 @@ class AccountShow extends React.Component {
                 </button>
                 </div>
                 <div>{this.renderPositions()}</div>
-                {/* <Footer/> */}
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }

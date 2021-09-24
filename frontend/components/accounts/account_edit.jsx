@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../sidebar/sidebar";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 class AccountEdit extends React.Component {
     constructor(props) {
@@ -187,7 +188,7 @@ class AccountEdit extends React.Component {
                 <select className="select-acct-edit" onChange={this.handleInput('selectedAcct')}>
                     <option> </option>
                     {accounts.map(account => (
-                        <option >{account.account_name}</option>
+                        <option key={account.id}>{account.account_name}</option>
                     ))}
                 </select>
                 <button className="search-acct-edit" onClick={this.searchAccount}>
@@ -199,6 +200,7 @@ class AccountEdit extends React.Component {
                 </div>
                 <div>{this.renderEdit()}</div>
                 <div>{this.deleteCheckRender()}</div>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }

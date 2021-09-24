@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../header/header';
 import Sidebar from '../sidebar/sidebar';
+import Footer from '../footer/footer';
 
 class AccountForm extends React.Component {
     constructor(props){
@@ -107,6 +108,7 @@ class AccountForm extends React.Component {
                 {/* <br></br> */}
                 </form>
                 </div>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }

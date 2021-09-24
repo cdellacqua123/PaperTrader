@@ -5,7 +5,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import NewsArticleItem from './news_article_render';
 
-class UsersForm extends React.Component {
+class UsersShow extends React.Component {
     constructor(props) {
         super(props)
         this.handleLogout = this.handleLogout.bind(this);
@@ -58,6 +58,7 @@ class UsersForm extends React.Component {
                 </thead>
                 {accounts.map(account => (
                         <AccountIndexItem
+                        key={account.id}
                         account_name = {account.account_name}
                         balance={account.balance}
                         equities={account.equities}
@@ -68,7 +69,8 @@ class UsersForm extends React.Component {
                 <div className='news-container'>
                     <h1 className='market-news'>Market News</h1>
                     {news.map(news_article => (
-                        <NewsArticleItem 
+                        <NewsArticleItem
+                        key={news_article.id} 
                         datetime = {news_article.datetime}
                         headline = {news_article.headline}
                         image = {news_article.image}
@@ -78,8 +80,9 @@ class UsersForm extends React.Component {
                         />
                     ))}
                 </div>
+                <Footer getQuote={this.props.getQuote}/>
             </div>
         )
     }
 }
-export default UsersForm;
+export default UsersShow;

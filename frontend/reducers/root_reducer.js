@@ -5,6 +5,7 @@ import entities from "./entities_reducer";
 import tradesReducer from "./trades_reducer";
 import posReducer from "./positions_reducer";
 import newsReducer from "./news_reducer";
+// import quoteReducer from "./quote_reducer";
 
 const RootReducer = combineReducers({
     session: sessReducer,
@@ -12,7 +13,8 @@ const RootReducer = combineReducers({
     entities: entities,
     trades: tradesReducer,
     positions: posReducer,
-    news: newsReducer
+    news: newsReducer,
+    // quote: quoteReducer
 })
 
 export default RootReducer;

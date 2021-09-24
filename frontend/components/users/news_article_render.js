@@ -6,7 +6,7 @@ class NewsArticleItem extends React.Component {
         const date = new Date(datetime * 1000)
         const new_datetime = (date.getMonth() + 1) + '/' + date.getDate()+'/'+date.getFullYear()+' '+date.getHours()+':'+date.getMinutes()+date.getSeconds()
         return(
-            <div className='ind-article'>
+            <div className='ind-article' key={url}>
                 <a href={url} className='article-link'>
                 {/* <h1>{url}</h1> */}
                 <div className='article-header'>

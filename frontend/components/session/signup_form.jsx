@@ -25,6 +25,7 @@ class SignupForm extends React.Component {
     }
 
     successfulSubmit() {
+        console.log(this.props.errors)
         if (this.props.errors.length === 0) {
             this.props.history.push("/users/show")
         } else {
@@ -74,7 +75,7 @@ class SignupForm extends React.Component {
                     <br></br>
                         <input
                             className='signup-email-field'
-                            type="text"
+                            type="email"
                             value={this.state.email}
                             onChange={this.handleInput('email')}
                             placeholder="Email"
