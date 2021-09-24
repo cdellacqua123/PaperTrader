@@ -116,6 +116,28 @@
     color: white
 }
 
+.home-links {
+    background: white;
+    width: 400px;
+    margin-left: 33%;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    font-family: 'Playfair Display', serif;
+    left: 10px;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    padding: 10px;
+    height: 20px;
+}
+
+.home-footer-image {
+    width: 25px;
+    height: 25px;
+    padding-left: 56px;
+}
+
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
