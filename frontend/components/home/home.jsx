@@ -25,12 +25,12 @@ class Home extends React.Component {
                 <p className="description">
                     Paper Trader is a free website that allows users to test
                     out their stock and/or ETF trading strategies without the risk
-                    of losing their own money. To use it, simply create a a profile
+                    of losing their own money. To use it, simply create a profile
                     through the "Sign Up" button, create a new trading account with
                     a nickname and any amount of fake dollars you'd like to start with,
                     and click "Place Trade". If you'd like to try the website before
                     creating an account, use the "Guest Login" feature located in 
-                    the "Sign Up" page.
+                    the "Login" page.
                 </p>
                     <button onClick={this.signUpPage} className='home-create'>Create Profile
                     </button>
