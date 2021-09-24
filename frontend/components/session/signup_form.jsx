@@ -25,7 +25,6 @@ class SignupForm extends React.Component {
     }
 
     successfulSubmit() {
-        console.log(this.props.errors)
         if (this.props.errors.length === 0) {
             this.props.history.push("/users/show")
         } else {
