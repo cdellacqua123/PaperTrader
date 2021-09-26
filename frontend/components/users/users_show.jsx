@@ -26,7 +26,6 @@ class UsersShow extends React.Component {
         this.props.fetchAcctsForUser(this.props.currentUser.id);
         if (window.finnhubAPIKey.length > 0) {
             const api_key = window.finnhubAPIKey
-            console.log("HRUIEBTRUIWE")
             this.props.fetchNews(api_key);
         }
     };
