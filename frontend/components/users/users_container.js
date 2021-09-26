@@ -15,7 +15,7 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     logout: user => dispatch(logout(user)),
     fetchAcctsForUser: (userId) => dispatch(fetchAcctsForUser(userId)),
-    fetchNews: () => dispatch(fetchNews()),
+    fetchNews: (api_key) => dispatch(fetchNews(api_key)),
     getQuote: (ticker) => dispatch(getQuote(ticker))
 });
 

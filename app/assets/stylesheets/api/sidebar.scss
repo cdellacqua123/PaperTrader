@@ -27,13 +27,15 @@
     // rgb(217, 226, 249);
 }
 
-// .sidebar {
-//     margin-top: -32%;
-// }
+.sidebar {
+    width: 1px;
+    color: white;
+    float: left;
+}
 
 .sidebar-li {
   display: inline-block;
-  // padding-bottom: 10px;
+  border-right: 1px solid gray;
 }
 
 #header {
