@@ -47,7 +47,7 @@ class Home extends React.Component {
                         <img src="images/Linkedin.png" className='home-footer-image' />
                     </a>
                     <a href="personal site">
-                        <img src="images/globe.png" className='home-footer-image' />
+                        <img src="images/www-globe.png" className='home-footer-image' />
                     </a>
                     <a href="https://angel.co/u/christopher-dell-acqua">
                         <img src="images/angel_list.png" className='home-footer-image' />

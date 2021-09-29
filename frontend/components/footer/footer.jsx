@@ -97,7 +97,7 @@ class Footer extends React.Component {
                     <img src="images/Linkedin.png" className='footer-image'/>
                 </a>
                 <a href="personal site">
-                    <img src="images/globe.png" className='footer-image' />
+                    <img src="images/www-globe.png" className='footer-image' />
                 </a>
                 <a href="https://angel.co/u/christopher-dell-acqua">
                     <img src="images/angel_list.png" className='footer-image' />

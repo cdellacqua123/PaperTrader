@@ -118,13 +118,13 @@
 
 .home-links {
     background: white;
-    width: 400px;
-    margin-left: 33%;
+    width: 223px;
+    /* margin-left: 33%; */
     display: flex;
     position: fixed;
-    bottom: 0px;
+    top: 5px;
     font-family: 'Playfair Display', serif;
-    left: 10px;
+    right: 10px;
     border-top: 1px solid gray;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
@@ -135,7 +135,7 @@
 .home-footer-image {
     width: 25px;
     height: 25px;
-    padding-left: 56px;
+    padding-left: 25px;
 }
 
 
