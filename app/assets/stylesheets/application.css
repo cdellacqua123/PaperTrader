@@ -117,19 +117,15 @@
 }
 
 .home-links {
-    background: white;
     width: 223px;
-    /* margin-left: 33%; */
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 5px;
     font-family: 'Playfair Display', serif;
     right: 10px;
-    border-top: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
     padding: 10px;
     height: 20px;
+    filter: brightness(0) invert(1);
 }
 
 .home-footer-image {
