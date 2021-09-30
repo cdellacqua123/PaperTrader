@@ -37,7 +37,15 @@ class TradesShow extends React.Component {
         if (check.childNodes.length) {
             check.removeChild(check.firstChild)};
         fetchStockData
-            .then(response => chartData(response, ticker))
+            .then(response => 
+                // {
+                // if (!response.date.length) {
+                //     return console.log("Here's an error")
+                // } else {
+                //     console.log("Hello")
+                //     chartData(response, ticker)
+                // }}
+                chartData(response, ticker))
             .then(chartView => createChart(chartView))
             .then(chart => { 
                 return (chart.render()) 
@@ -84,6 +92,9 @@ class TradesShow extends React.Component {
         placingTrade(ticker, action, numShares, account, that)
         async function placingTrade(ticker, action, numShares, account, that) {
             let data = await getDailyInfo(ticker);
+            if (data.close.length === 0) {
+                return that.invalidTickerSetState();
+            }
             let price = data.close[0]
             if (price * numShares > account.balance) {
                 return (that.notEnoughFundsSetState());
@@ -107,6 +118,10 @@ class TradesShow extends React.Component {
 
     notEnoughFundsSetState() {
         return (this.setState({ ['tradeErr']: 'Insufficient funds for trade'}))
+    }
+
+    invalidTickerSetState() {
+        return (this.setState({ ['tradeErr']: 'Invalid ticker symbol' }))
     }
 
     tradeSuccessSetState() {
