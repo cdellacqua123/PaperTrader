@@ -91,11 +91,11 @@ class TradesShow extends React.Component {
 
             let accountId = account.id
             let trade = {
-                symbol: ticker, action: action,
+                symbol: ticker.toUpperCase(), action: action,
                 acct_id: accountId, price: price, shares: numShares
             };
             let remTrade = {
-                ticker: ticker, action: action,
+                ticker: ticker.toUpperCase(), action: action,
                 acc_id: accountId, fill_price: price, num_shares: numShares, total_dr_cr: (numShares * price).toFixed(2)
             };
 
