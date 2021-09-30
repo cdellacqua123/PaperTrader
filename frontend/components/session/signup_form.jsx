@@ -21,16 +21,16 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.signup(this.state)
-        .then(this.successfulSubmit.bind(this))
+        // .then(this.successfulSubmit.bind(this))
     }
 
-    successfulSubmit() {
-        if (this.props.errors.length === 0) {
-            this.props.history.push("/users/show")
-        } else {
-            this.props.history.push("/signup")
-        }
-    }
+    // successfulSubmit() {
+    //     if (this.props.errors.length === 0) {
+    //         this.props.history.push("/users/show")
+    //     } else {
+    //         this.props.history.push("/signup")
+    //     }
+    // }
 
     renderErrors() {
         return (
@@ -78,6 +78,7 @@ class SignupForm extends React.Component {
                             value={this.state.email}
                             onChange={this.handleInput('email')}
                             placeholder="Email"
+                            required
                         />
                     <br></br>
                         <input
