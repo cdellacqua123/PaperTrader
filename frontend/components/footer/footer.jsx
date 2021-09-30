@@ -96,7 +96,7 @@ class Footer extends React.Component {
                 <a href="https://www.linkedin.com/in/christopher-dell-acqua-b6765995/">
                     <img src="images/Linkedin.png" className='footer-image'/>
                 </a>
-                <a href="personal site">
+                    <a href="https://cdellacqua123.github.io/personal-site/">
                     <img src="images/www-globe.png" className='footer-image' />
                 </a>
                 <a href="https://angel.co/u/christopher-dell-acqua">
