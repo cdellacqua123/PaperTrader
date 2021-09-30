@@ -1,7 +1,6 @@
 import axios from "axios";
 import 'regenerator-runtime/runtime';
-// const finnhub = require('finnhub');
-// import finnhub from '../../../node_modules/finnhub/dist/index'
+
 
 export default async function getDailyInfo(ticker) {
     // let key = ''
