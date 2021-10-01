@@ -70,6 +70,7 @@ class TradeHistory extends React.Component {
                         </thead>
                         {trades.map(trade =>
                             <TradeRender
+                                key={trade.id}
                                 action={trade.action}
                                 ticker={trade.ticker}
                                 price={trade.fill_price}
