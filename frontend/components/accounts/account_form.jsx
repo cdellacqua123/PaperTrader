@@ -30,8 +30,6 @@ class AccountForm extends React.Component {
         } else {
             let check = this.props.accounts.find(account => account.account_name === this.state.account_name)
             if ((!check) && (parseInt(this.state.balance))) {
-                console.log(this.state)
-                console.log(this.props.currentUser.id)
                 this.props.submitAcct({
                     account_name: this.state.account_name,
                     balance: this.state.balance,
