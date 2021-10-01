@@ -30,11 +30,13 @@ class AccountForm extends React.Component {
         } else {
             let check = this.props.accounts.find(account => account.account_name === this.state.account_name)
             if ((!check) && (parseInt(this.state.balance))) {
+                console.log(this.state)
+                console.log(this.props.currentUser.id)
                 this.props.submitAcct({
                     account_name: this.state.account_name,
                     balance: this.state.balance,
                     // shorting_allowed: this.state.shorting_allowed,
-                    user_id: this.state.user_id
+                    user_id: this.props.currentUser.id
                 });
                 this.props.history.push("/users/show");
             } else if (check) {
@@ -80,6 +82,7 @@ class AccountForm extends React.Component {
     }
     
     render(){
+        // console.log(this.state)
         return(
             <div>
                 <Header/>
