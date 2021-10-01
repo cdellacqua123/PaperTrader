@@ -64,7 +64,7 @@ class AccountShow extends React.Component {
         else if (this.state && this.state.positions && this.state.positions.length > 1) {
             let positions = this.state.positions
             let balance = positions[0]
-            positions = positions.slice(1)
+            positions = positions.slice(1).reverse()
             return(
                 <div>
                     <h1 className="cash-head-pos">Cash:</h1>
@@ -115,7 +115,7 @@ class AccountShow extends React.Component {
                 <div className="select-n-button-acct-show">
                 <select className="select-acct-show" onChange={this.handleInput('selectedAcct')}>
                     <option className="acct-show-option"> </option>
-                    {accounts.map(account => (
+                    {accounts.slice(0).reverse().map(account => (
                         <option key={account.id}>{account.account_name}</option>
                     ))}
                 </select>

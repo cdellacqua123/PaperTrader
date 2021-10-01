@@ -187,7 +187,7 @@ class AccountEdit extends React.Component {
                 <div className='select-n-button-edit'>
                 <select className="select-acct-edit" onChange={this.handleInput('selectedAcct')}>
                     <option> </option>
-                    {accounts.map(account => (
+                    {accounts.slice(0).reverse().map(account => (
                         <option key={account.id}>{account.account_name}</option>
                     ))}
                 </select>
