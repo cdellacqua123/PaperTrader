@@ -59,7 +59,7 @@ class UsersShow extends React.Component {
                         <th className="table-headers"># of Equities</th>
                     </tr>
                 </thead>
-                {accounts.map(account => (
+                    {accounts.slice(0).reverse().map(account => (
                         <AccountIndexItem
                         key={account.id}
                         account_name = {account.account_name}

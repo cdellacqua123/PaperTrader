@@ -55,7 +55,7 @@ class TradeHistory extends React.Component {
             )
         }
         else if (this.state && this.state.acctsTrades && this.state.acctsTrades.length > 0) {
-            let trades = this.state.acctsTrades
+            let trades = this.state.acctsTrades.slice(0).reverse()
             return (
                 <div>
                     <table className="render-trd-table">
@@ -70,6 +70,7 @@ class TradeHistory extends React.Component {
                         </thead>
                         {trades.map(trade =>
                             <TradeRender
+                                key={trade.id}
                                 action={trade.action}
                                 ticker={trade.ticker}
                                 price={trade.fill_price}
@@ -110,7 +111,7 @@ class TradeHistory extends React.Component {
                 <div className="select-n-button-hist">
                     <select className="select-hist" onChange={this.handleInput('selectedAcct')}>
                         <option> </option>
-                        {accounts.map(account => (
+                        {accounts.slice(0).reverse().map(account => (
                             <option key={account.id}>{account.account_name}</option>
                         ))}
                     </select>

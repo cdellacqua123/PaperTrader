@@ -172,7 +172,7 @@ class TradesShow extends React.Component {
                     <label className="select-acct-head">Select Account</label>
                     <select className="select-acct" onChange={this.handleInput('account')}>
                         <option> </option>
-                        {accounts.map(account => (
+                        {accounts.slice(0).reverse().map(account => (
                             <option key={account.id}>{account.account_name}</option>
                         ))}
                     </select>
