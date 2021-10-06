@@ -38,7 +38,7 @@
     max-width: 100%;
     display: flex;
 }
-body {
+.homepage {
   overflow-y: hidden;
 }
 /* .homepage {
