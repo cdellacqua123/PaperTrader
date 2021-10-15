@@ -38,9 +38,9 @@
     max-width: 100%;
     display: flex;
 }
-.homepage {
+/* .homepage {
   overflow-y: hidden;
-}
+} */
 /* .homepage {
     background-image: url('../images/exchange.jpg');
     max-height: 100%;
