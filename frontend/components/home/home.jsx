@@ -19,7 +19,9 @@ class Home extends React.Component {
                     <img className="logo" src="images/logo.png" />
                     Paper Trader
                 </h1>
-                <img className='home-pic'src="images/exchange.jpg"/>
+                <div className='home-pic-container'>
+                    <img className='home-pic'src="images/exchange.jpg"/>
+                </div>
                 <div className="home-block">
                     <h1 className='about'>About this website</h1>
                     <p className="description">
