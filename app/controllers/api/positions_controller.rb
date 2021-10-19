@@ -52,6 +52,7 @@ class Api::PositionsController < ApplicationController
         @account = Account.find(params[:id])
         if @account.equities.length > 0
             @positions = Position.select{ |pos| pos.acct_id == @account.id}
+            # @positions = @account.positions
             render "api/positions/index"
         else
             render json: @account.errors.full_messages, status: 404
