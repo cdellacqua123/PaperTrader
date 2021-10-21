@@ -14,8 +14,8 @@ class Api::TradesController < ApplicationController
 
     def show
         @account = Account.find(params[:id])
-        if @account.trade_hist.length > 0
-            @trades = Trade.select{ |trade| trade.acc_id == @account.id}
+        if @account.trades.length > 0
+            @trades = @account.trades
             render "api/trades/index"
         else
             render json: @account.errors.full_messages, status: 404
