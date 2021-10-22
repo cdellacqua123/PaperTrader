@@ -14,7 +14,6 @@ class Home extends React.Component {
     render() {
         return(
             <div className='homepage'>
-            
                 <h1 className='pt-header'>
                     <img className="logo" src="images/logo.png" />
                     Paper Trader
