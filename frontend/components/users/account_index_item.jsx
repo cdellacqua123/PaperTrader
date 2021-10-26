@@ -2,7 +2,7 @@ import React from 'react';
 
 class AccountIndexItem extends React.Component {
     render() {
-        const {account_name, balance, equities, id} = this.props
+        const {account_name, balance, equities} = this.props
         return(
             <tbody>
                 <tr>
