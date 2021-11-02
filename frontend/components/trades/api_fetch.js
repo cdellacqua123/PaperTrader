@@ -3,11 +3,6 @@ import 'regenerator-runtime/runtime';
 
 
 export default async function getDailyInfo(ticker) {
-    // let key = ''
-    // const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-    // api_key.apiKey = "" // Replace this
-    // const finnhubClient = new finnhub.DefaultApi()
-
     // // Stock candles
     // finnhubClient.stockCandles("AAPL", "D", 1590988249, 1591852249, {}, (error, data, response) => {
     //     console.log(data)
