@@ -36,6 +36,7 @@ class Api::AccountsController < ApplicationController
     end
 
     private
+    
     def account_params
         params.require(:account).permit(:account_name, :balance, :shorting_allowed, :user_id)
     end
